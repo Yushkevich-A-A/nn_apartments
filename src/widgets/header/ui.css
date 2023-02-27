@@ -1,0 +1,26 @@
+.header{
+    background: black;
+}
+
+.flexible-center{
+    display: flex;
+    align-items: center;
+}
+
+.wrapper{
+    display: flex;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 9px;
+    justify-content: space-between;
+}
+
+.header__phone{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: #FFFFFF;
+}
