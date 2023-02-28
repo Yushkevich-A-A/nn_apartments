@@ -1,7 +1,7 @@
-@import 'shared/styles/fonts.module.scss';
+// @import 'shared/styles/fonts.module.scss';
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@700&family=Inter&family=Raleway:wght@700&display=swap');
+@import './reset.module.scss';
 
 * {
-    padding: 0;
-    margin: 0;
     font-family: 'Inter';
 }

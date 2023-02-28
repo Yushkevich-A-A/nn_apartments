@@ -2,12 +2,19 @@
     font-family: "Cormorant";
     font-weight: 700;
     font-style: normal;
-    src: local('shared/assets/fonts/Cormorant-Bold.ttf') format('ttf');
+    src: local('shared/assets/fonts/Cormorant-Bold.ttf') format('truetype');
 }
 
 @font-face {
     font-family: "Inter";
     font-weight: 400;
     font-style: normal;
-    src: local('shared/assets/fonts/Inter-Regular.ttf') format('ttf');
+    src: local('shared/assets/fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Raleway";
+    font-weight: 700;
+    font-style: normal;
+    src: local('shared/assets/fonts/Raleway-Bold.ttf') format('truetype');
 }
