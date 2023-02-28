@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from 'widgets/header/ui';
 //import logo from './logo.svg';
-import './App.css';
+import './style.module.scss';
 import { Routes, Route } from "react-router-dom";
 
 function App() {
