@@ -1,5 +1,7 @@
 .header{
     background: black;
+    position: relative;
+    z-index: 0;
 }
 
 .flexible-center{
@@ -7,7 +9,16 @@
     align-items: center;
 }
 
-.wrapper{
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 10;
+}
+
+.container{
     display: flex;
     max-width: 1180px;
     margin: 0 auto;

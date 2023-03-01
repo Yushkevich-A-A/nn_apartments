@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "description": "Первый"
+    },
+    {
+        "id": 2,
+        "description": "Второй"
+    },
+    {
+        "id": 3,
+        "description": "Третий"
+    },
+    {
+        "id": 4,
+        "description": "Четвертый"
+    }
+]
