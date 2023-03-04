@@ -1,0 +1,24 @@
+.page-wrapper_width {
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 10px;
+}
+
+@media (max-width: 1200px) {
+    .page-wrapper_width {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 960px) {
+    .page-wrapper_width {
+        max-width: 640px;
+    }
+}
+@media (max-width: 380px) {
+    .page-wrapper_width {
+        max-width: 340px;
+    }
+}
