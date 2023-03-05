@@ -1,7 +1,8 @@
-import React from 'react'
+import React from 'react';
+import './style.scss';
 
-export const PolicyConfidentiality = () => {
+export const PolicyConfidentiality: React.FC = () => {
   return (
-    <div>PolicyConfidentiality</div>
+    <div className='policy-confidentiality'>политика конфиденциальности</div>
   )
 }
