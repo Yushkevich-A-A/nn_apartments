@@ -1,5 +1,7 @@
 import React from 'react'
 import { Col, Row, Container } from 'react-bootstrap'
+import { EmailElement } from 'shared/components/EmailElement';
+import { InstagramElement } from 'shared/components/InstagramElement';
 import { PhoneElement } from 'shared/components/PhoneElement';
 import Logo from 'shared/Logo';
 // import { Container } from 'react-bootstrap/lib/Tab';
@@ -22,14 +24,14 @@ export const Footer: React.FC = () => {
                     <Row>Дом купца Переплетчикова</Row>
                 </Col>
                 <Col>
-                    <Row>
+                    <Row className='footer__link_color-grey'>
+                        <EmailElement />
+                    </Row>
+                    <Row className='footer__link_color-grey'>
+                        <InstagramElement />
+                    </Row>
+                    <Row className='footer__link_color-grey'>
                         <PhoneElement />
-                    </Row>
-                    <Row>
-
-                    </Row>
-                    <Row>
-
                     </Row>
                 </Col>
             </Row>

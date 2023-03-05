@@ -1,10 +1,15 @@
 import React from 'react';
-import './style.scss';
+import { FooterContactLink } from '../FooterContactLink';
+import iconInstagram from './img/instagram.svg';
+import { Icon } from '../Icon';
 
 export const InstagramElement: React.FC = () => {
   return (
-    <a href="https://instagram.com" target='_blank' >
-      
-    </a>
+    <FooterContactLink url='https://instagram.com'>
+        <Icon url={iconInstagram} />
+        <span className='text_font-feature-setting'>
+            instagram
+        </span>
+    </FooterContactLink>
   )
 }

@@ -6,7 +6,7 @@ interface ILinkElement {
   children: React.ReactNode
 }
 
-export const LinkElement: React.FC<ILinkElement> = (props: ILinkElement ) => {
+export const FooterContactLink: React.FC<ILinkElement> = (props: ILinkElement ) => {
   const { url } = props;
   return (
     <a href={url} className='link-element'>
