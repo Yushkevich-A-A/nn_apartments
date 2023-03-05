@@ -1,7 +1,7 @@
 import { Routes } from "react-router-dom";
 import PageNav from "widgets/PageNav";
 
-export default function Apartaments(){
+export default function Apartments(){
 
     return(
         <section className="">

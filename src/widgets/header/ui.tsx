@@ -6,8 +6,8 @@ function Header() {
     return (
       <header className="header">
         <CarouselFade />
-        <div className="wrapper">
-          <div className="container">
+        <div className="header_wrapper">
+          <div className="header_container">
             <Logo/>
             <p className="header__phone flexible-center">+7 910 999-99-99</p>
           </div>

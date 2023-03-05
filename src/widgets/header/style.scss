@@ -9,7 +9,7 @@
     align-items: center;
 }
 
-.wrapper {
+.header_wrapper {
     position: absolute;
     top: 0;
     left: 0;
@@ -18,7 +18,7 @@
     z-index: 10;
 }
 
-.container{
+.header_container{
     display: flex;
     max-width: 1180px;
     margin: 0 auto;

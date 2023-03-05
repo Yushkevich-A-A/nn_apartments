@@ -1,17 +1,18 @@
 import React from 'react';
 import Header from 'widgets/header/ui';
-//import logo from './logo.svg';
-import './style.module.scss';
+import './style.scss';
 import { Routes, Route } from "react-router-dom";
-import Apartaments from 'pages/Apartaments';
+import Apartments from 'pages/Apartments';
+import { Footer } from 'widgets/Footer';
 
 function App() {
   return (
     <div className="App">
       <Header/>
-      <Apartaments/>
+      <Apartments/>
       <Routes>
       </Routes>
+      <Footer />
     </div>
   );
 }
