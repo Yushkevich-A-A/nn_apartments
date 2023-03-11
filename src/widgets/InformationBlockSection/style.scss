@@ -1,0 +1,43 @@
+.information-block-section {
+    margin-top: 30px;
+    width: 300px;
+}
+
+.information-block-section_mode {
+    width: 280px;
+}
+
+.information-block-section__container {
+    margin-top: 20px;
+}
+
+.information-block-section__item {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 120%;
+}
+
+.information-block-section__item:nth-child(n + 2) {
+    margin-top: 7px;
+}
+
+.information-block-section__item_mode:nth-child(n + 2) {
+    margin-top: 20px;
+}
+
+@media (max-width: 960px) {
+    .information-block-section__item {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 380px) {
+    .information-block-section__item {
+        font-size: 14px;
+    }
+    .information-block-section__item_mode:nth-child(n + 2) {
+        margin-top: 7px;
+    }
+}

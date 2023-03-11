@@ -5,12 +5,16 @@
 .information-block__container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 @media (max-width: 960px) {
     .information-block {
         padding: 50px 0;
     }
+}
+
+@media (max-width: 380px) {
     .information-block__container {
         display: block;
     }
