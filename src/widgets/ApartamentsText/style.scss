@@ -1,0 +1,27 @@
+.apartaments-text{
+    margin-top: 73px;
+}
+
+.apartaments-text__head{
+    font-family: 'Forum';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 55px;
+    text-transform: uppercase;
+    margin-bottom: 0;
+}
+
+.apartaments-text__adress{
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+    /* identical to box height, or 29px */
+    text-decoration-line: underline;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+
+

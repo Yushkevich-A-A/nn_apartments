@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import { WidthWrapperPage } from "shared/components/WidthWrapperPage";
 import ApartamentsText from "widgets/ApartamentsText";
@@ -6,20 +7,31 @@ import './style.scss'
 
 export default function Apartments(){
 
-    const pageList = [
-        'Дом у реки',
-        'Фарфор и соловей',
-        'Апартаменты на Грузинской',
-        'Дом купца Переплетчикова'
-    ]
+    const [apartamentsList, setList] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:8000/api/apartments/')
+            .then(response => response.json())
+            .then(data => setList(data))
+    },[])
+
 
     return(
         <section className="apartaments">
             <WidthWrapperPage >
-                <PageNav/>
+                <PageNav data = {apartamentsList}/>
                 <Routes>
-                    {pageList.map((element,index) => 
-                        <Route key = {element}  path = {'/'+index} element = {<ApartamentsText text = {element}/>}></Route>
+                    {apartamentsList.map((element:any) => 
+                    {
+                        return(
+                            <Route 
+                                key = {element.id}  
+                                path = {':id'} 
+                                element = {<ApartamentsText/>}
+                            />
+                        )
+                    }
+                        
                     )}
                 </Routes>
             </WidthWrapperPage>
