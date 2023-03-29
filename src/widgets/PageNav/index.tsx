@@ -1,19 +1,14 @@
 import { NavLink } from 'react-router-dom'
 import './style.scss'
 
-export default function PageNav(){
-    const pageList = [
-        'Дом у реки',
-        'Фарфор и соловей',
-        'Апартаменты на Грузинской',
-        'Дом купца Переплетчикова'
-    ]
+export default function PageNav(props:any){
+    const pageList = props.data
 
     return(
         <ul className="page-nav">
-            {pageList.map((e,index) => 
-                <li className='page-nav__element' key={e}>
-                    <NavLink className='page-nav__link' to = {"/"+index}>{e}</NavLink>
+            {pageList.map((e:any) => 
+                <li className='page-nav__element' key={e.id}>
+                    <NavLink className='page-nav__link' to = {'/'+e.id}>{e.name}</NavLink>
                 </li>)}
         </ul>
     )
