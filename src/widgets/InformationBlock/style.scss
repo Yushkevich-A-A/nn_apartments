@@ -1,0 +1,17 @@
+.information-block {
+    padding: 70px 0;
+}
+
+.information-block__container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 960px) {
+    .information-block {
+        padding: 50px 0;
+    }
+    .information-block__container {
+        display: block;
+    }
+}
