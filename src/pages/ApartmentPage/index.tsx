@@ -9,7 +9,7 @@ export default function ApartmentPage(){
     return(
         <section className="apartaments">
             <WidthWrapperPage >
-                <PageNav/>
+                {/* <PageNav/> */}
                 <Appartment/>
             </WidthWrapperPage>
         </section>

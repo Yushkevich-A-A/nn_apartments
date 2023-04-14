@@ -8,7 +8,7 @@ import apart4 from './../img/apart4.jpg';
 import ICarouselData from 'shared/interfaces/ICarouselData';
 import './style.scss';
 
-function CarouselFade() {
+export function HeaderSlider() {
   const arrImg = [ apart1, apart2, apart3, apart4 ];
 
   return (
@@ -27,5 +27,3 @@ function CarouselFade() {
     </Carousel>
   );
 }
-
-export default CarouselFade;

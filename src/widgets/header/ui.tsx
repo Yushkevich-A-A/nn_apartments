@@ -1,11 +1,11 @@
-import CarouselFade from "entities/CarouselFade/ui";
+import { HeaderSlider } from "widgets/HeaderSlider";
 import Logo from "shared/Logo";
 import './style.scss'
 
 function Header() {
     return (
       <header className="header">
-        <CarouselFade />
+        <HeaderSlider />
         <div className="header_wrapper">
           <div className="header_container">
             <Logo/>

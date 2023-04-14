@@ -3,9 +3,10 @@ import { create } from 'zustand';
 
 export interface IUseApartmentStore {
   apartments: any[];
-  selectedAppartment: null | number,
+  selectedAppartment: null | number;
   addApartments: (payload: IApartmentModel[]) => void;
-  getApartment: (id: number) => IApartmentModel
+  getApartment: (id: number) => IApartmentModel;
+  selectApartment: (id: number) => void;
 }
 
 const useApartmentStore = create<IUseApartmentStore>()((set, get) => ({
@@ -15,7 +16,10 @@ const useApartmentStore = create<IUseApartmentStore>()((set, get) => ({
     set(( )=> ({ apartments: [...payload] }))
     },
   getApartment: (id: number) => {
-    return get().apartments.find( apartment => apartment === id );
+    return get().apartments.find( (apartment: IApartmentModel) => apartment.id === id );
+  },
+  selectApartment: (id: number) => {
+    set(( )=> ({ selectedAppartment: id }))
   },
 }));
 
