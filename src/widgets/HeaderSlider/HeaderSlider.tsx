@@ -1,10 +1,10 @@
 import React from 'react';
 import { Carousel } from 'react-bootstrap';
 import data from './data.json';
-import apart1 from './../img/apart1.jpg';
-import apart2 from './../img/apart2.jpg';
-import apart3 from './../img/apart3.jpg';
-import apart4 from './../img/apart4.jpg';
+import apart1 from './img/apart1.jpg';
+import apart2 from './img/apart2.jpg';
+import apart3 from './img/apart3.jpg';
+import apart4 from './img/apart4.jpg';
 import ICarouselData from 'shared/interfaces/ICarouselData';
 import './style.scss';
 

@@ -1,0 +1,12 @@
+.text-under-header {
+    padding-right: 15px;
+    font-family: 'Raleway';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 160%;
+}
+
+.text-under-header:nth-child( n + 2 ) {
+    padding-left: 15px;
+    border-left: 1px solid #DBCAAC;
+}

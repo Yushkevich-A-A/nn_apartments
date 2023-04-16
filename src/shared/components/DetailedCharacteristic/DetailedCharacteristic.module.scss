@@ -1,0 +1,48 @@
+.detailed-characteristic {
+    margin-top: 45px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.detailed-characteristic {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.characteristic-row {
+    width: 45%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.characteristic-row:nth-child(n + 3) {
+    margin-top: 10px;
+}
+
+.characteristic-key {
+    white-space: nowrap;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    color: rgba(0, 0, 0, 0.7);
+    margin-right: 10px;
+}
+.characteristic-line {
+    width: 100%;
+    border-bottom: 0.3px solid #D2D2D2;
+}
+.characteristic-data {
+    white-space: nowrap;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 21px;
+    margin-left: 10px;
+    color: rgba(0, 0, 0, 0.8);
+}

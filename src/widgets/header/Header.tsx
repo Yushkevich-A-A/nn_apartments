@@ -2,7 +2,7 @@ import { HeaderSlider } from "widgets/HeaderSlider";
 import Logo from "shared/Logo";
 import './style.scss'
 
-function Header() {
+export function Header() {
     return (
       <header className="header">
         <HeaderSlider />
@@ -15,5 +15,4 @@ function Header() {
       </header>
     );
   }
-  
-  export default Header;  
+    

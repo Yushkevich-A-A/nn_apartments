@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Header from 'widgets/header/ui';
 import './style.scss';
 import { Footer } from 'widgets/Footer';
 import { InformationBlock } from 'widgets/InformationBlock';
@@ -7,6 +6,7 @@ import { useApartmentStore } from 'store/useApartmentStore';
 import axios, { AxiosResponse } from 'axios';
 import { IApartmentModel } from 'shared/types';
 import ApartmentPage from 'pages/ApartmentPage';
+import { Header } from 'widgets/Header';
 
 function App() {
   const { addApartments, selectApartment } = useApartmentStore.getState();

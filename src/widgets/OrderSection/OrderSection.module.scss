@@ -1,0 +1,27 @@
+.order-section {
+    padding: 70px;
+    background-color: #F7F5EE;
+}
+
+.order-section__wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-section__description_block {
+    max-width: 50%;
+}
+
+.order-section__block {
+    padding: 55px 0;
+    border-top: 1px solid #D2D2D2;
+}
+
+.order-section__block:first-child {
+    padding-top: 0;
+    border-top: none;
+}
+
+.order-section__block:last-child {
+    padding-bottom: 0;
+}
