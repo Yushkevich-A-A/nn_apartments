@@ -6,6 +6,7 @@
 .order-section__wrapper {
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 }
 
 .order-section__description_block {
@@ -24,4 +25,15 @@
 
 .order-section__block:last-child {
     padding-bottom: 0;
+}
+
+.map_block {
+    border-radius: 15px;
+    margin-top: 30px;
+    overflow: hidden;
+}
+
+.ya-map {
+    width: 600px;
+    height: 450px;
 }
