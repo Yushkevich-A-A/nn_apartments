@@ -2,10 +2,10 @@ import { IApartmentModel } from 'shared/types';
 import { create } from 'zustand';
 
 export interface IUseApartmentStore {
-  apartments: any[];
+  apartments: IApartmentModel[];
   selectedAppartment: null | number;
   addApartments: (payload: IApartmentModel[]) => void;
-  getApartment: (id: number) => IApartmentModel;
+  getApartment: (id: number) => IApartmentModel | undefined;
   selectApartment: (id: number) => void;
 }
 

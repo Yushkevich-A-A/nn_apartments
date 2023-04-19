@@ -1,5 +1,32 @@
 .order-section__order_block {
+    margin-bottom: 15px
+}
+.calculator-block {
     background: #FFFFFF;
     border-radius: 15px;
     padding: 40px 25px;
+    filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.09));
+}
+
+.price-block {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    margin-bottom: 45px;
+}
+
+.price {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 32px;
+}
+
+.info {
+    margin-top: 15px;
+    padding: 25px;
+    font-size: 18px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.28);
+    border: 1px solid #E3E3E3;
+    border-radius: 15px;
 }

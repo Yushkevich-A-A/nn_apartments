@@ -1,15 +1,25 @@
 import { NavLink } from 'react-router-dom'
 import './style.scss'
+import { useApartmentStore } from 'store/useApartmentStore'
+import { IApartmentModel } from 'shared/types';
+import { WidthWrapperPage } from 'shared/components/WidthWrapperPage';
+import cn from 'classnames';
 
-export default function PageNav(props:any){
-    const pageList = props.data
+export const PageNav: React.FC = () => {
+    const { apartments, selectedAppartment, selectApartment } = useApartmentStore();
 
-    return(
-        <ul className="page-nav">
-            {pageList.map((e:any) => 
-                <li className='page-nav__element' key={e.id}>
-                    <NavLink className='page-nav__link' to = {'/'+e.id}>{e.name}</NavLink>
-                </li>)}
-        </ul>
+    return (
+        <WidthWrapperPage>
+            <ul className="page-nav">
+                {
+                    apartments.map((e: IApartmentModel) => <li className='page-nav__element' key={e.id}>
+                            <div 
+                            className={cn('page-nav__link', selectedAppartment === e.id && 'selected-apartment')}
+                            onClick={() => selectApartment(e.id)}
+                            >{e.name}</div>
+                        </li>)
+                }
+            </ul>
+        </WidthWrapperPage>
     )
 }

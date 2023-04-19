@@ -28,7 +28,7 @@ export const OrderSection = ({ apartment }: {apartment: IApartmentModel}) => {
                     </div>
                     <div className={styles["order-section__block"]}>
                         <TextH4 title='Расположение'/>
-                        <TextUnderTitle textArray={apartment.location.desc}/>
+                        {!!apartment.location && <TextUnderTitle textArray={apartment.location.desc}/>}
                         <div className={styles["map_block"]}>
                             <YMaps>
                                 <Map 
