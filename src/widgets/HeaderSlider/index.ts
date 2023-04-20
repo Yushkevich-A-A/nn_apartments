@@ -1,1 +1,1 @@
-export { HeaderSlider } from './HeaderSlider' ;
+export { HeaderSlider } from './HeaderSlider';

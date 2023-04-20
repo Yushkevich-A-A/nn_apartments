@@ -1,8 +1,3 @@
-export default function ApartamentCarousel(){
-
-    return(
-        <div>
-            
-        </div>
-    )
+export default function ApartamentCarousel() {
+	return <div></div>;
 }

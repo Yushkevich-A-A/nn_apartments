@@ -1,8 +1,5 @@
-import './style.scss'
+import './style.scss';
 
-export default function Logo(){
-
-    return(
-        <h1 className="logo">Лого</h1>
-    )
+export default function Logo() {
+	return <h1 className="logo">Лого</h1>;
 }

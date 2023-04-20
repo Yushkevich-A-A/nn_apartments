@@ -1,3 +1,3 @@
 import { OrderSection } from './OrderSection';
 
-export { OrderSection }
+export { OrderSection };

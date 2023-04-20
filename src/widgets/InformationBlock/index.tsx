@@ -7,16 +7,16 @@ import data from './data.json';
 import './style.scss';
 
 export const InformationBlock = () => {
-  return (
-    <WidthWrapperPage>
-      <div className="information-block">
-        <TitleH2 title="Важная информация"/>
-        <div className="information-block__container">
-          {
-            data.map( (item: IRuleItem )=> <InformationBlockSection key={item.title} item={item}/>)
-          }
-        </div>
-      </div>
-    </WidthWrapperPage>
-  )
-}
+	return (
+		<WidthWrapperPage>
+			<div className="information-block">
+				<TitleH2 title="Важная информация" />
+				<div className="information-block__container">
+					{data.map((item: IRuleItem) => (
+						<InformationBlockSection key={item.title} item={item} />
+					))}
+				</div>
+			</div>
+		</WidthWrapperPage>
+	);
+};

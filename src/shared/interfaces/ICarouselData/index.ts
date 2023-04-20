@@ -1,4 +1,4 @@
 export default interface ICarouselData {
-    id: number,
-    description: string
+	id: number;
+	description: string;
 }
