@@ -9,7 +9,7 @@ export function Header() {
 			<div className="header_wrapper">
 				<div className="header_container">
 					<Logo />
-					<p className="header__phone flexible-center">+7 910 999-99-99</p>
+					<p className="header__phone flexible-center">+7(910)999-99-99</p>
 				</div>
 			</div>
 		</header>

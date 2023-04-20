@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import styles from './PageNav.module.scss';
 import { useApartmentStore } from 'store/useApartmentStore';
 import { IApartmentModel } from 'shared/types';
