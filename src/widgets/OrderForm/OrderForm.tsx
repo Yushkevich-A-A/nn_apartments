@@ -1,9 +1,8 @@
 import React from 'react';
 import styles from './OrderForm.module.scss';
 import { GreenButton } from 'shared/components/GreenButton';
-import { InputComponent } from 'shared/components/InputComponent';
-import { SelectComponent } from 'shared/components/SelectComponent';
 import { SelectDate } from 'features/SelectDate';
+import { SelectGuests } from 'features/SelectGuests';
 
 export const OrderForm = ({ price }) => {
 	return (
@@ -15,9 +14,7 @@ export const OrderForm = ({ price }) => {
 					</div>
 					<div className={styles['form-to-block']}>
 						<SelectDate />
-						<div className="form_select">
-							<SelectComponent label="Для кого" value="1 гость" capacity={4} />
-						</div>
+						<SelectGuests />
 					</div>
 					<div className="row-fields">
 						<input type="text" />
