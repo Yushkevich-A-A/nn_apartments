@@ -2,7 +2,7 @@ import { HeaderSlider } from 'widgets/HeaderSlider';
 import Logo from 'shared/Logo';
 import './style.scss';
 
-export function Header() {
+export function Header(): JSX.Element {
 	return (
 		<header className="header">
 			<HeaderSlider />
