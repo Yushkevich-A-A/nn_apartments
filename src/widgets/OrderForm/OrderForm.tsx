@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './OrderForm.module.scss';
 import { GreenButton } from 'shared/components/GreenButton';
 import { InputComponent } from 'shared/components/InputComponent';
+import { SelectComponent } from 'shared/components/SelectComponent';
 
 export const OrderForm = ({ price }) => {
 	return (
@@ -12,22 +13,31 @@ export const OrderForm = ({ price }) => {
 						<span className={styles['price']}>от {price}₽</span>/сутки
 					</div>
 					<div className={styles['form-to-block']}>
-						<InputComponent
-							onChange={function (payload: React.ChangeEvent<HTMLInputElement>): void {
-								console.log(payload);
-							}}
-							value={'13.02.2023'}
-							name={'Прибытие'}
-							label={'Прибытие'}
-						/>
-						<InputComponent
-							onChange={function (payload: React.ChangeEvent<HTMLInputElement>): void {
-								console.log(payload);
-							}}
-							value={'16.02.2023'}
-							name={'Выезд'}
-							label={'Выезд'}
-						/>
+						<div className={styles['form_date']}>
+							<div className={styles['input_component__wrapper']}>
+								<InputComponent
+									onChange={function (payload: React.ChangeEvent<HTMLInputElement>): void {
+										console.log(payload);
+									}}
+									value={'13.02.2023'}
+									name={'Прибытие'}
+									label={'Прибытие'}
+								/>
+							</div>
+							<div className={styles['input_component__wrapper']}>
+								<InputComponent
+									onChange={function (payload: React.ChangeEvent<HTMLInputElement>): void {
+										console.log(payload);
+									}}
+									value={'16.02.2023'}
+									name={'Выезд'}
+									label={'Выезд'}
+								/>
+							</div>
+						</div>
+						<div className="form_select">
+							<SelectComponent label="Для кого" value="1 гость" capacity={4} />
+						</div>
 					</div>
 					<div className="row-fields">
 						<input type="text" />
