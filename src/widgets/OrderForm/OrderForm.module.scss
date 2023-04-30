@@ -30,24 +30,3 @@
     border: 1px solid #E3E3E3;
     border-radius: 15px;
 }
-
-// .form-to-block {
-//     display: flex;
-//     flex-wrap: nowrap;
-//     justify-content: space-between;
-// }
-
-.input_component__wrapper:first-child {
-    margin-right: 5px;
-}
-
-.input_component__wrapper:last-child {
-    margin-left: 5px;
-}
-
-.form_date {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    margin-bottom: 5px;
-}

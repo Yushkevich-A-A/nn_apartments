@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import { PageNav } from 'widgets/PageNav';
+import { PageNav } from 'widgets/PageNav/PageNav';
 import './style.scss';
 import { Apartment } from 'widgets/Apartment';
 

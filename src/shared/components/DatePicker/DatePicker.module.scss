@@ -1,0 +1,47 @@
+.date-picker {
+    background: #FFFFFF;
+    box-shadow: 1.74574px 3.49147px 17.4574px rgba(0, 0, 0, 0.15);
+    border-radius: 13.093px;
+    padding: 25px 40px;
+    height: 560px;
+}
+
+.date-picker_info-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.date-picker_amount {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 33px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.date-picker_dates {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.date-picker_input-blocks {
+    display: flex;
+    align-items: center;
+}
+
+.input_component__wrapper {
+    max-width: 210px;
+}
+
+.input_component__wrapper:nth-child( n + 2 ) {
+    margin-left: 10px;
+}
