@@ -5,6 +5,7 @@ import { useOrderSelect } from 'store/useOrderSelect';
 import { GuestCalculate } from 'shared/components/GueatCalculate';
 import { useApartmentStore } from 'store/useApartmentStore';
 import { IApartmentModel } from 'shared/types';
+import cn from 'classnames';
 
 export const SelectGuests: React.FC = () => {
 	const { selectedAppartment, apartments } = useApartmentStore();
@@ -14,14 +15,25 @@ export const SelectGuests: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const { guests } = selectedParameters;
 
+	// useEffect(() => {
+	// 	const handleClickListener = (e: MouseEvent): void => {
+	// 		const element = e.target as HTMLElement;
+	// 		if (!element.closest('guest_calculate_block') && isOpen) {
+	// 			setIsOpen(false);
+	// 		}
+	// 	};
+	// 	window.addEventListener('click', handleClickListener);
+	// 	return () => window.removeEventListener('click', handleClickListener);
+	// }, []);
+
 	useEffect(() => {
 		if (selectedAppartment === null) {
 			return;
 		}
-		setCapacity(
-			apartments.find((apartment: IApartmentModel) => apartment.id === selectedAppartment)
-				?.capacity || 0,
-		);
+		const apartCapacity = apartments.find(
+			(apartment: IApartmentModel) => apartment.id === selectedAppartment,
+		)?.capacity;
+		setCapacity(apartCapacity || 0);
 	}, [selectedAppartment]);
 
 	useEffect(() => {
@@ -31,7 +43,7 @@ export const SelectGuests: React.FC = () => {
 		} else {
 			setIsMax(false);
 		}
-	}, [guests]);
+	}, [guests, capacity]);
 
 	const handleCalc = (name: string, value: number): void => {
 		const newCountGuests = { ...guests, [name]: value };
@@ -51,7 +63,7 @@ export const SelectGuests: React.FC = () => {
 				handleOpen={(): void => setIsOpen(!isOpen)}
 			/>
 			{isOpen && (
-				<div className={styles['calculate']}>
+				<div className={cn(styles['calculate'], 'guest_calculate_block')}>
 					<GuestCalculate
 						value={guests.adult}
 						label="Взрослые"
