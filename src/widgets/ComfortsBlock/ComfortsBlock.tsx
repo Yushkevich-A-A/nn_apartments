@@ -17,17 +17,17 @@ interface IProps {
 export const ComfortsBlock = ({ comforts }: { comforts: IProps[] }) => {
 	const handleIcons = (type: string) => {
 		switch (type) {
-			case 'wifi':
+			case 'wi-fi':
 				return wifi;
-			case 'park':
+			case 'parking':
 				return park;
-			case 'tv':
+			case 'TV':
 				return tv;
-			case 'furniture':
+			case 'appliances':
 				return furniture;
-			case 'linen':
+			case 'linens':
 				return towel;
-			case 'security':
+			case 'key':
 				return security;
 			default:
 				return null;

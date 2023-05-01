@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './DatePicker.module.scss';
 import { InputComponent } from '../InputComponent';
+import { CalendarWidget } from 'widgets/CalendarWidget';
 
 export const DatePicker = () => {
 	return (
@@ -34,18 +35,7 @@ export const DatePicker = () => {
 				</div>
 			</div>
 			<div className={styles['date-picker_calendar-block']}>
-				<div className={styles['calendar-header']}>
-					<div className={styles['arrow-left']}></div>
-					<div className={styles['arrow-months']}>
-						<div className={styles['month']}></div>
-						<div className={styles['month']}></div>
-					</div>
-					<div className={styles['arrow-right']}></div>
-				</div>
-				<div className={styles['calendar-body']}>
-					<div className={styles['month-dates']}></div>
-					<div className={styles['month-dates']}></div>
-				</div>
+				<CalendarWidget multimonth={true} />
 			</div>
 		</div>
 	);

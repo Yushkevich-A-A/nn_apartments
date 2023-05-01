@@ -3,7 +3,11 @@ import styles from './WidgetFormModal.module.scss';
 import { GreenButton } from 'shared/components/GreenButton';
 import { InputTextForm } from 'shared/components/InputTextForm';
 
-export const WidgetFormModal = () => {
+interface IProps {
+	handleSubmit: () => void;
+}
+
+export const WidgetFormModal = ({ handleSubmit }) => {
 	const [formData, setFormData] = useState({
 		name: '',
 		phone: '',
@@ -16,6 +20,10 @@ export const WidgetFormModal = () => {
 		setFormData((state) => ({ ...state, [name]: value }));
 	};
 
+	const onSubmit = () => {
+		handleSubmit(formData);
+	};
+
 	return (
 		<div className={styles['widget-form-modal']}>
 			<div className={styles['form-modal__title']}>Поздравляем!</div>
@@ -25,26 +33,26 @@ export const WidgetFormModal = () => {
 			<div className={styles['form-modal__form']}>
 				<InputTextForm
 					value={formData.name}
-					placeholder="Ваше имя"
+					placeholder="Ваше имя*"
 					handleChange={handleChange}
 					name="name"
 					className={styles['form-modal__input']}
 				/>
 				<InputTextForm
 					value={formData.phone}
-					placeholder="Номер телефона"
+					placeholder="Номер телефона*"
 					handleChange={handleChange}
 					name="phone"
 					className={styles['form-modal__input']}
 				/>
 				<InputTextForm
 					value={formData.email}
-					placeholder="Электронная почта"
+					placeholder="Электронная почта*"
 					handleChange={handleChange}
 					name="email"
 					className={styles['form-modal__input']}
 				/>
-				<GreenButton title="забронировать" handleClick={(): void => console.log('click')} />
+				<GreenButton title="забронировать" handleClick={onSubmit} />
 			</div>
 		</div>
 	);

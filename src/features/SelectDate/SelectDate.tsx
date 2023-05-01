@@ -29,7 +29,7 @@ export const SelectDate = () => {
 					/>
 				</div>
 			</div>
-			{openCalendar && (
+			{true && (
 				<div className={styles['date-picker_wrapper']}>
 					<DatePicker />
 				</div>
