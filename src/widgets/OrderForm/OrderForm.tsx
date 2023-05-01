@@ -5,9 +5,13 @@ import { SelectDate } from 'features/SelectDate';
 import { SelectGuests } from 'features/SelectGuests';
 import { ModalWindow } from 'shared/components/ModalWindow';
 import { WidgetFormModal } from 'widgets/WidgetFormModal';
+import { WidgetSuccessSendData } from 'widgets/WidgetSuccessSendData';
 
 export const OrderForm = ({ price }) => {
 	const [openModal, setOpenModal] = useState(false);
+	const [sendData, setSendData] = useState(false);
+
+	// const handleSubmit = (e) => {};
 
 	const handleClose = (): void => setOpenModal(false);
 	return (
@@ -29,7 +33,8 @@ export const OrderForm = ({ price }) => {
 			</div>
 			{openModal && (
 				<ModalWindow handleClose={handleClose}>
-					<WidgetFormModal />
+					{false && <WidgetFormModal />}
+					{true && <WidgetSuccessSendData />}
 				</ModalWindow>
 			)}
 			<div className={styles['info']}>бесплатная отмена втечение 48 часов</div>
