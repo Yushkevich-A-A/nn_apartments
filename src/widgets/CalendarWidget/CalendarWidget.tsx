@@ -10,8 +10,9 @@ interface IProps {
 	multiMonth: boolean;
 }
 export const CalendarWidget: React.FC<IProps> = ({ multiMonth = true }) => {
-	const [value, setChange] = useState<any>(new Date());
+	const [value, setChange] = useState<any>(null);
 	const [haveAcross, setHaveAcross] = useState(false);
+	const [monthOnCalendar, setMonthOnCalendar] = useState(format(new Date(), 'MMMM'));
 
 	const reservedData = ['2023.05.23', '2023.05.24', '2023.06.05', '2023.06.9'];
 
@@ -54,7 +55,7 @@ export const CalendarWidget: React.FC<IProps> = ({ multiMonth = true }) => {
 				parentElement.setAttribute('data-reserved', 'true');
 			}
 		});
-	}, []);
+	}, [monthOnCalendar]);
 
 	return (
 		<div className="calendar_block">
@@ -64,14 +65,25 @@ export const CalendarWidget: React.FC<IProps> = ({ multiMonth = true }) => {
 				showFixedNumberOfWeeks={false}
 				showDoubleView={true}
 				minDetail="month"
+				nextLabel={<span></span>}
+				prevLabel={<span></span>}
 				next2Label={null}
 				prev2Label={null}
 				value={value}
-				onChange={(e) => setChange(e)}
+				onChange={(e) => {
+					console.log(e);
+					setChange(e);
+				}}
 				returnValue="range"
 				minDate={new Date()}
 				formatMonthYear={(locale, date) => {
 					return format(date, 'LLLL').toLowerCase();
+				}}
+				onActiveStartDateChange={({ activeStartDate, view }) => {
+					if (view !== 'month') {
+						return;
+					}
+					setMonthOnCalendar(format(activeStartDate || new Date(), 'MMMM'));
 				}}
 			/>
 			{haveAcross && (
