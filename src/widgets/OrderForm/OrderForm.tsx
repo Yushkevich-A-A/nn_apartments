@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import styles from './OrderForm.module.scss';
 import { GreenButton } from 'shared/components/GreenButton';
-import { SelectDate } from 'features/SelectDate';
 import { SelectGuests } from 'features/SelectGuests';
 import { ModalWindow } from 'shared/components/ModalWindow';
 import { WidgetFormModal } from 'widgets/WidgetFormModal';
 import { WidgetSuccessSendData } from 'widgets/WidgetSuccessSendData';
+import { ButtonsOpenCalendar } from 'features/ButtonsOpenCalendar';
+import { DatePicker } from 'shared/components/DatePicker';
 
 interface IFormData {
 	name: string;
@@ -16,6 +17,7 @@ interface IFormData {
 export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 	const [openModal, setOpenModal] = useState(false);
 	const [sendData, setSendData] = useState(false);
+	const [openCalendar, setOpenCalendar] = useState<boolean>(false);
 
 	const handleSubmit = (data: IFormData): void => {
 		console.log(data);
@@ -36,7 +38,17 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 						<span className={styles['price']}>от {price}₽</span>/сутки
 					</div>
 					<div className={styles['form-to-block']}>
-						<SelectDate />
+						<ButtonsOpenCalendar
+							dateInn="13.02.2023"
+							dateOut="16.02.2023"
+							handleClick={(): void => setOpenCalendar(true)}
+						>
+							{true && (
+								<div className={styles['date-picker_wrapper']}>
+									<DatePicker />
+								</div>
+							)}
+						</ButtonsOpenCalendar>
 						<SelectGuests />
 					</div>
 					<div className="row-fields">

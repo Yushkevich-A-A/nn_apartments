@@ -35,7 +35,7 @@ export const DatePicker = () => {
 				</div>
 			</div>
 			<div className={styles['date-picker_calendar-block']}>
-				<CalendarWidget multimonth={true} />
+				<CalendarWidget multiMonth={true} />
 			</div>
 		</div>
 	);
