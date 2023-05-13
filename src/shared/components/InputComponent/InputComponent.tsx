@@ -3,24 +3,27 @@ import styles from './InputComponent.module.scss';
 
 interface IProps {
 	onChange: (payload: React.ChangeEvent<HTMLInputElement>) => void;
-	value: string;
+	value: any;
 	name: string;
 	label: string;
+	type: string;
 }
 
-export const InputComponent: React.FC<IProps> = ({ onChange, value, name, label }: IProps) => {
-	const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-		onChange(e);
-	};
-
+export const InputComponent: React.FC<IProps> = ({
+	onChange,
+	value,
+	name,
+	label,
+	type = 'text',
+}: IProps) => {
 	return (
 		<div className={styles['input__block']}>
 			<label htmlFor={name} className={styles['input_label']}>
 				{name}
 			</label>
 			<input
-				type="text"
-				onChange={handleChange}
+				type={type}
+				onChange={onChange}
 				name={name}
 				id={name}
 				value={value}

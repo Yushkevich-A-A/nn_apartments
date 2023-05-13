@@ -4,22 +4,32 @@ import './CalendarWidget.scss';
 import { formatDate } from 'react-calendar/dist/cjs/shared/dateFormatter';
 import { format, parse, setDefaultOptions } from 'date-fns';
 import { ru } from 'date-fns/locale';
+import { LooseValue } from 'react-calendar/dist/cjs/shared/types';
 setDefaultOptions({ locale: ru });
 
 interface IProps {
 	multiMonth: boolean;
+	setChange: (e) => void;
+	value: any;
+	reservedDates: string[];
 }
-export const CalendarWidget: React.FC<IProps> = ({ multiMonth = true }) => {
-	const [value, setChange] = useState<any>(null);
+export const CalendarWidget: React.FC<IProps> = ({
+	value,
+	setChange,
+	multiMonth,
+	reservedDates,
+}) => {
 	const [haveAcross, setHaveAcross] = useState(false);
 	const [monthOnCalendar, setMonthOnCalendar] = useState(format(new Date(), 'MMMM'));
+	const [crossRange, setCrossRange] = useState<string[]>([]);
 
-	const reservedData = ['2023.05.23', '2023.05.24', '2023.06.05', '2023.06.9'];
+	// const reservedData = ['2023.05.23', '2023.05.24', '2023.06.05', '2023.06.9'];
 
 	useEffect(() => {
 		const calendar = document.getElementsByClassName('react-calendar__viewContainer')[0];
 		const mutationObserver = new MutationObserver((e) => {
 			let crossSelectedData = false;
+			const arrCross: string[] = [];
 			e.forEach((element) => {
 				const targetElement = element.target as HTMLDivElement;
 				if (!targetElement.getAttribute('data-reserved')) {
@@ -27,9 +37,14 @@ export const CalendarWidget: React.FC<IProps> = ({ multiMonth = true }) => {
 				}
 				if (targetElement.classList.contains('react-calendar__tile--range')) {
 					crossSelectedData = true;
+					const reservedDataValue = targetElement.getAttribute('data-reserved-date');
+					if (reservedDataValue) {
+						arrCross.push(reservedDataValue);
+					}
 				}
 			});
 			setHaveAcross(crossSelectedData);
+			setCrossRange(arrCross);
 		});
 		mutationObserver.observe(calendar, {
 			subtree: true,
@@ -40,7 +55,7 @@ export const CalendarWidget: React.FC<IProps> = ({ multiMonth = true }) => {
 
 	useEffect(() => {
 		const tegArray = document.getElementsByTagName('abbr');
-		const formattedDates = reservedData.map((date) => {
+		const formattedDates = reservedDates.map((date) => {
 			const parsedDate = parse(date, 'yyyy.MM.dd', new Date());
 			return format(parsedDate, 'd MMMM yyyy г.');
 		});
@@ -53,9 +68,17 @@ export const CalendarWidget: React.FC<IProps> = ({ multiMonth = true }) => {
 					return;
 				}
 				parentElement.setAttribute('data-reserved', 'true');
+				parentElement.setAttribute(
+					'data-reserved-date',
+					format(parse(valueAttribute, 'd MMMM yyyy г.', new Date()), 'yyyy.MM.dd'),
+				);
 			}
 		});
 	}, [monthOnCalendar]);
+
+	useEffect(() => {
+		console.log('пришедшие данные', value);
+	}, [value]);
 
 	return (
 		<div className="calendar_block">
@@ -69,9 +92,9 @@ export const CalendarWidget: React.FC<IProps> = ({ multiMonth = true }) => {
 				prevLabel={<span></span>}
 				next2Label={null}
 				prev2Label={null}
+				// defaultValue={new Date()}
 				value={value}
 				onChange={(e) => {
-					console.log(e);
 					setChange(e);
 				}}
 				returnValue="range"
