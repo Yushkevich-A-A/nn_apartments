@@ -1,16 +1,19 @@
+import { addDays, format, parse } from 'date-fns';
 import { IApartmentModel } from 'shared/types';
 import { create } from 'zustand';
 
 export interface IInitState {
-	dateFrom: number | null;
-	dateTo: number | null;
-	name: string;
-	phone: string;
-	email: string;
+	date: {
+		start: Date;
+		end: Date;
+	};
+	crossDates: string[];
+	name: string | null;
+	phone: string | null;
+	email: string | null;
 	guests: {
 		adult: number;
 		children: number;
-		baby: number;
 	};
 	apartment: number | null;
 }
@@ -22,15 +25,17 @@ export interface IUseOrderSelect {
 }
 
 const initState: IInitState = {
-	dateFrom: null,
-	dateTo: null,
+	date: {
+		start: parse(format(new Date(), 'dd.MM.yyyy'), 'dd.MM.yyyy', new Date()),
+		end: addDays(parse(format(new Date(), 'dd.MM.yyyy'), 'dd.MM.yyyy', new Date()), 1),
+	},
+	crossDates: [],
 	name: '',
 	phone: '',
 	email: '',
 	guests: {
 		adult: 1,
 		children: 0,
-		baby: 0,
 	},
 	apartment: null,
 };
@@ -40,6 +45,14 @@ const useOrderSelect = create<IUseOrderSelect>()((set) => ({
 		...initState,
 	},
 	setOrderParameter: (payload: Partial<IInitState>): void => {
+		return set((state) => ({
+			selectedParameters: {
+				...state.selectedParameters,
+				...payload,
+			},
+		}));
+	},
+	setDateParameter: (payload: Partial<IInitState>): void => {
 		return set((state) => ({
 			selectedParameters: {
 				...state.selectedParameters,

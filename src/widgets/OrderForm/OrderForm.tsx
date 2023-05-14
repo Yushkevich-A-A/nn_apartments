@@ -7,6 +7,8 @@ import { WidgetFormModal } from 'widgets/WidgetFormModal';
 import { WidgetSuccessSendData } from 'widgets/WidgetSuccessSendData';
 import { ButtonsOpenCalendar } from 'features/ButtonsOpenCalendar';
 import { DatePicker } from 'shared/components/DatePicker';
+import { useOrderSelect } from 'store/useOrderSelect';
+import { format } from 'date-fns';
 
 interface IFormData {
 	name: string;
@@ -15,6 +17,7 @@ interface IFormData {
 }
 
 export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
+	const { date } = useOrderSelect().selectedParameters;
 	const [openModal, setOpenModal] = useState(false);
 	const [sendData, setSendData] = useState(false);
 	const [openCalendar, setOpenCalendar] = useState<boolean>(false);
@@ -39,13 +42,13 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 					</div>
 					<div className={styles['form-to-block']}>
 						<ButtonsOpenCalendar
-							dateInn="13.02.2023"
-							dateOut="16.02.2023"
+							dateInn={format(date.start, 'dd.MM.yyyy')}
+							dateOut={format(date.end, 'dd.MM.yyyy')}
 							handleClick={(): void => setOpenCalendar(true)}
 						>
-							{true && (
+							{openCalendar && (
 								<div className={styles['date-picker_wrapper']}>
-									<DatePicker />
+									<DatePicker handleClick={(): void => setOpenCalendar(false)} />
 								</div>
 							)}
 						</ButtonsOpenCalendar>

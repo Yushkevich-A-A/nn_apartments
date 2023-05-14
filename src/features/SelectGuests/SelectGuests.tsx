@@ -15,17 +15,6 @@ export const SelectGuests: React.FC = () => {
 	const [isOpen, setIsOpen] = useState(false);
 	const { guests } = selectedParameters;
 
-	// useEffect(() => {
-	// 	const handleClickListener = (e: MouseEvent): void => {
-	// 		const element = e.target as HTMLElement;
-	// 		if (!element.closest('guest_calculate_block') && isOpen) {
-	// 			setIsOpen(false);
-	// 		}
-	// 	};
-	// 	window.addEventListener('click', handleClickListener);
-	// 	return () => window.removeEventListener('click', handleClickListener);
-	// }, []);
-
 	useEffect(() => {
 		if (selectedAppartment === null) {
 			return;
@@ -77,13 +66,6 @@ export const SelectGuests: React.FC = () => {
 						description="возраст 3-12 лет"
 						handleCount={(val: number): void => handleCalc('children', val)}
 						isMax={isMax}
-					/>
-					<GuestCalculate
-						value={guests.baby}
-						label="Младенцы"
-						description="Младше 3-х лет"
-						handleCount={(val: number): void => handleCalc('baby', val)}
-						isMax={guests.baby > 5}
 					/>
 					<div className={styles['additional-info']}>
 						{`Жильё рассчитано максимум на 6 гостей, \nне считая младенцев.`}

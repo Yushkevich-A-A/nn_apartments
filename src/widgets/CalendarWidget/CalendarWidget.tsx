@@ -23,8 +23,6 @@ export const CalendarWidget: React.FC<IProps> = ({
 	const [monthOnCalendar, setMonthOnCalendar] = useState(format(new Date(), 'MMMM'));
 	const [crossRange, setCrossRange] = useState<string[]>([]);
 
-	// const reservedData = ['2023.05.23', '2023.05.24', '2023.06.05', '2023.06.9'];
-
 	useEffect(() => {
 		const calendar = document.getElementsByClassName('react-calendar__viewContainer')[0];
 		const mutationObserver = new MutationObserver((e) => {
@@ -75,10 +73,6 @@ export const CalendarWidget: React.FC<IProps> = ({
 			}
 		});
 	}, [monthOnCalendar]);
-
-	useEffect(() => {
-		console.log('пришедшие данные', value);
-	}, [value]);
 
 	return (
 		<div className="calendar_block">
