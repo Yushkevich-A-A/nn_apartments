@@ -8,9 +8,9 @@ export interface IInitState {
 		end: Date;
 	};
 	crossDates: string[];
-	name: string | null;
-	phone: string | null;
-	email: string | null;
+	name: string;
+	phone: string;
+	email: string;
 	guests: {
 		adult: number;
 		children: number;
