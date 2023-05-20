@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import styles from './WidgetFormModal.module.scss';
 import { GreenButton } from 'shared/components/GreenButton';
 import { InputTextForm } from 'shared/components/InputTextForm';
+import cn from 'classnames';
+import { InputPhoneComponent } from 'shared/components/InputPhoneComponent';
 
 interface IProps {
 	handleSubmit: () => void;
@@ -14,6 +16,8 @@ export const WidgetFormModal = ({ handleSubmit }) => {
 		email: '',
 	});
 
+	const [errorArray, setErrorArray] = useState<string[]>([]);
+
 	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const name = e.target.name;
 		const value = e.target.value;
@@ -21,6 +25,21 @@ export const WidgetFormModal = ({ handleSubmit }) => {
 	};
 
 	const onSubmit = () => {
+		debugger;
+		const validateEmailRegex = /^\S+@\S+\.\S+$/;
+		const arrayError: string[] = [];
+		if (formData.name.trim() === '') {
+			arrayError.push('name');
+		}
+		if (formData.phone.includes('_') || formData.phone.trim() === '') {
+			arrayError.push('phone');
+		}
+		if (!validateEmailRegex.test(formData.email)) {
+			arrayError.push('email');
+		}
+		if (arrayError.length !== 0) {
+			return setErrorArray([...arrayError]);
+		}
 		handleSubmit(formData);
 	};
 
@@ -36,20 +55,22 @@ export const WidgetFormModal = ({ handleSubmit }) => {
 					placeholder="Ваше имя*"
 					handleChange={handleChange}
 					name="name"
-					className={styles['form-modal__input']}
+					isError={errorArray.includes('name')}
+					className={cn(styles['form-modal__input'])}
 				/>
-				<InputTextForm
+				<InputPhoneComponent
+					onChange={handleChange}
 					value={formData.phone}
-					placeholder="Номер телефона*"
-					handleChange={handleChange}
 					name="phone"
-					className={styles['form-modal__input']}
+					isError={errorArray.includes('phone')}
+					label={'Номер телефона*'}
 				/>
 				<InputTextForm
 					value={formData.email}
 					placeholder="Электронная почта*"
 					handleChange={handleChange}
 					name="email"
+					isError={errorArray.includes('email')}
 					className={styles['form-modal__input']}
 				/>
 				<GreenButton title="забронировать" handleClick={onSubmit} />

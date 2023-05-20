@@ -1,4 +1,8 @@
-.input_element {
+.input__block {
+    margin-bottom: 15px;
+}
+ 
+.input__block > input {
     width: 100%;
     padding: 20px 30px;
     border: 1px solid #E3E3E3;
@@ -12,10 +16,10 @@
     color: rgba(0, 0, 0, 0.4);
 }
 
-.input-element_error {
+.input-element_error > input {
     border: 1px solid red;
 }
 
-.input_element:focus-visible {
+.input__block > input:focus-visible {
     outline: none;
 }

@@ -7,6 +7,7 @@ interface IProps {
 	name: string;
 	className?: string;
 	handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+	isError: boolean;
 }
 
 export const InputTextForm: React.FC<IProps> = ({
@@ -15,11 +16,16 @@ export const InputTextForm: React.FC<IProps> = ({
 	handleChange,
 	name,
 	className,
+	isError,
 }) => {
 	return (
 		<input
 			type="text"
-			className={cn(styles['input_element'], className && className)}
+			className={cn(
+				styles['input_element'],
+				className && className,
+				isError && styles['input-element_error'],
+			)}
 			value={value}
 			onChange={handleChange}
 			placeholder={placeholder}

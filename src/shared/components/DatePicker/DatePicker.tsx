@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './DatePicker.module.scss';
-import { InputComponent } from '../InputComponent';
 import { CalendarWidget } from 'widgets/CalendarWidget';
 import { addDays, differenceInCalendarDays, format, parse, setDefaultOptions } from 'date-fns';
-import { InputDateComponent } from '../InputDateComponent';
+import { InputDateComponent } from 'shared/components/InputDateComponent';
 import { ru } from 'date-fns/locale';
 import { useOrderSelect } from 'store/useOrderSelect';
 setDefaultOptions({ locale: ru });
