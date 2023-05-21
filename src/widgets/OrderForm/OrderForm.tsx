@@ -66,7 +66,7 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 					{sendData && <WidgetSuccessSendData />}
 				</ModalWindow>
 			)}
-			<div className={styles['info']}>бесплатная отмена втечение 48 часов</div>
+			<div className={styles['info']}>бесплатная отмена втечение 14 дней</div>
 		</div>
 	);
 };

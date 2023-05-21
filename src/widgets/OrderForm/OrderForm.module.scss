@@ -39,3 +39,17 @@
     right: -25px;
     z-index: 100;
 }
+
+@media (max-width: 1200px) {
+    .order-section__order_block {
+        width: 470px;
+        padding-left: 70px;
+    }
+}
+
+
+@media (max-width: 960px) {
+    .order-section__wrapper {
+        flex-direction: column;
+    }
+}

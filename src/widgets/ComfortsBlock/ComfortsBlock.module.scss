@@ -6,7 +6,6 @@
 .comfort-item {
     display: flex;
     width: 50%;
-    align-items: center;
     margin-top: 15px;
     &_icon {
         width: 30px;
@@ -14,15 +13,25 @@
         background-repeat: no-repeat;
         background-size: contain;
         background-position: center;
-        margin-right: 15px;
     }
 
     &_desc {
-        max-width: 225px;
+        width: 100%;
         font-family: 'Raleway';
         font-style: normal;
         font-weight: 400;
         font-size: 18px;
         line-height: 120%;
+        padding-left: 15px;
     }
+}
+
+@media (max-width: 1200px) {
+    .comfort-item {
+        width: 50%;
+        &:nth-child(2n) {
+            padding-left: 20px;
+        }
+    }
+
 }
