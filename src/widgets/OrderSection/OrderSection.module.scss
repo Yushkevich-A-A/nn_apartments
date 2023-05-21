@@ -1,5 +1,5 @@
 .order-section {
-    padding: 70px;
+    padding: 70px 0;
     background-color: #F7F5EE;
 }
 
@@ -61,6 +61,7 @@
     .order-section__wrapper {
         flex-direction: column;
     }
+
     .order-section__description_block {
         max-width: 100%;
         width: 100%;
@@ -82,7 +83,31 @@
     } 
 
     .ya-map {
-        width: 100%;
+        width: 100vw;
         height: 480px;
+    }
+}
+
+@media (max-width: 640px) {
+    .order-section {
+        padding: 35px 0;
+    }
+
+    .order-section__block {
+        position: relative;
+        padding: 30px 0;
+        border-top: 1px solid #D2D2D2;
+    }
+
+    .map_block {
+        border-radius: 0;
+        position: absolute;
+        top: 0;
+        left: -30px;
+        right: -30px;
+        bottom: 0;
+    } 
+    .map_block_wrapper {
+        margin: 20px 0;
     }
 }

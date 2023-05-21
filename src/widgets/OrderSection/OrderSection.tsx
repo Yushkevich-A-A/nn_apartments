@@ -26,6 +26,7 @@ export const OrderSection = ({ apartment }: { apartment: IApartmentModel }) => {
 							<TextH4 title="Удобства:" />
 							<ComfortsBlock comforts={apartment.comfort} />
 						</div>
+
 						<div className={styles['order-section__block']}>
 							<TextH4 title="Расположение" />
 							{!!apartment.location && <TextUnderTitle textArray={apartment.location.desc} />}
@@ -42,6 +43,7 @@ export const OrderSection = ({ apartment }: { apartment: IApartmentModel }) => {
 											modules={['control.ZoomControl']}
 											instanceRef={(ref) => {
 												ref && ref.behaviors.disable('scrollZoom');
+												ref && ref.behaviors.disable('drag');
 											}}
 										>
 											<Placemark defaultGeometry={[56.320228, 43.972919]} />

@@ -306,3 +306,54 @@
     }
   }
 } 
+
+
+@media (max-width: 640px) {
+  .react-calendar__navigation {
+    padding: 0 0 10px;
+  }
+
+  div.react-calendar__navigation > button.react-calendar__navigation__label {
+    font-size: 18px;
+  } 
+
+  .react-calendar__navigation__arrow {
+    background-size: 15px 10px;
+    width: 15px;
+    height: 15px;
+  }
+
+  .react-calendar__month-view__weekdays__weekday {
+    font-size: 12px;
+    flex-basis: 35px !important;
+    width: 35px;
+    height: 35px;
+    margin-left: auto !important;
+  }
+
+
+
+// .react-calendar__month-view__days__day > abbr {
+//     font-size: 18px;
+// } 
+
+  .react-calendar__tile {
+    font-size: 12px;
+    flex-basis: 35px !important;
+    width: 35px;
+    height: 35px;
+    margin-left: 7.5px !important;
+
+    &:first-child {
+      margin-left: 0 !important;
+    }
+
+    &:nth-child(7n + 1) {
+      margin-left: 0 !important;
+    }
+  }
+
+  .calendar_block {
+    height: auto;
+  }
+} 

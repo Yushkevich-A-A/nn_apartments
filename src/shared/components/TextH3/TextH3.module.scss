@@ -5,3 +5,9 @@
     text-transform: uppercase;
     color: #000000;
 }
+
+@media (max-width: 640px) {
+    .text-label__h3 {
+        font-size: 28px;
+    }
+}
