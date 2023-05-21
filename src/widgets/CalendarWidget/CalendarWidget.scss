@@ -244,3 +244,65 @@
   .range-across {
     color: red;
   }
+
+  @media (max-width: 960px) {
+    .react-calendar__navigation {
+      padding: 0 0 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    div.react-calendar__navigation > button.react-calendar__navigation__label {
+      justify-content: center;
+      font-size: 29.3072px;
+    } 
+
+    .react-calendar__navigation__arrow {
+      background-size: 22px 19px;
+      width: 25px;
+      height: 25px;
+    }
+
+    .react-calendar__month-view__weekdays__weekday {
+      font-size: 22px;
+      flex-basis: 55px !important;
+      width: 55px;
+      height: 55px;
+    }
+
+    .react-calendar__month-view__weekdays {
+      gap: unset;
+    }
+
+  .react-calendar__month-view__weekdays__weekday {
+    margin-left: 12px !important;
+
+    &:first-child {
+      margin-left: 0 !important;
+    }
+  } 
+
+  .react-calendar__month-view__days__day > abbr {
+      font-size: 18px;
+  } 
+
+  .react-calendar__month-view__days {
+    gap: unset;
+  }
+
+  .react-calendar__tile {
+    width: 55px;
+    height: 55px;
+    flex-basis: 55px !important;
+    margin-left: 12px !important;
+
+    &:first-child {
+      margin-left: 0 !important;
+    }
+
+    &:nth-child(7n + 1) {
+      margin-left: 0 !important;
+    }
+  }
+} 

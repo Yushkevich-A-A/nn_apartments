@@ -28,3 +28,10 @@
 .important-info {   
     text-decoration: underline;
 }
+
+
+@media (max-width: 960px) {
+    .select-guests {
+        margin-top: 10px;
+    }
+} 

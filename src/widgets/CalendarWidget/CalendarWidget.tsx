@@ -78,9 +78,9 @@ export const CalendarWidget: React.FC<IProps> = ({
 		<div className="calendar_block">
 			<Calendar
 				selectRange={true}
-				showNeighboringMonth={false}
+				showNeighboringMonth={!multiMonth}
 				showFixedNumberOfWeeks={false}
-				showDoubleView={true}
+				showDoubleView={multiMonth}
 				minDetail="month"
 				nextLabel={<span></span>}
 				prevLabel={<span></span>}

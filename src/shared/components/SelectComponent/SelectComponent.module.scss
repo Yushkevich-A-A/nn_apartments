@@ -45,3 +45,10 @@
 .arrow-down {
     transform: rotate(180deg);
 } 
+
+@media (max-width: 960px) {
+    .select_block_wrapper {
+        background: #FFFFFF;
+        border-radius: 15px;
+    }
+} 

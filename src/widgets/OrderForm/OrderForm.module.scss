@@ -52,4 +52,32 @@
     .order-section__wrapper {
         flex-direction: column;
     }
+
+    .order-section__order_block {
+        width: 550px;
+        padding-left: 0;
+    }
+
+    .calculator-block {
+        padding: 0;
+        background: none;
+        border-radius: 0;
+        filter: none;
+    }
+    
+    .serve-button {
+        width: 410px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+    }
+    .info {
+        margin-top: 10px;
+        font-size: 18px;
+        padding: 0;
+        text-align: center;
+        background: none;
+        border: none;
+        border-radius: 0;
+    }
 }

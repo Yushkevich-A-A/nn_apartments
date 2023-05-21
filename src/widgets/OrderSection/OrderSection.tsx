@@ -40,6 +40,9 @@ export const OrderSection = ({ apartment }: { apartment: IApartmentModel }) => {
 												controls: ['zoomControl'],
 											}}
 											modules={['control.ZoomControl']}
+											instanceRef={(ref) => {
+												ref && ref.behaviors.disable('scrollZoom');
+											}}
 										>
 											<Placemark defaultGeometry={[56.320228, 43.972919]} />
 										</Map>

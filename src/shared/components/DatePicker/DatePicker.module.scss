@@ -79,3 +79,25 @@
     color: #000000;
     cursor: pointer;
 }
+
+@media (max-width: 960px) {
+    .date-picker {
+        padding: 0;
+        box-shadow: none;
+    }
+
+    .date-picker_info-block-wrapper {
+        padding: 25px 44px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: rgba(212, 190, 158, 0.04);
+        border: 1px solid #E3E3E3;
+        border-top-left-radius: 13.093px;
+        border-top-right-radius: 13.093px;
+    }
+    .date-picker_calendar-block {
+        padding: 25px 44px;
+    }
+} 

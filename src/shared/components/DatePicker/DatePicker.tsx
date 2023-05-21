@@ -9,9 +9,10 @@ setDefaultOptions({ locale: ru });
 
 interface IProps {
 	handleClick: () => void;
+	isMobil?: boolean;
 }
 
-export const DatePicker: React.FC<IProps> = ({ handleClick }) => {
+export const DatePicker: React.FC<IProps> = ({ handleClick, isMobil }) => {
 	const { selectedParameters, setOrderParameter } = useOrderSelect();
 	const [diffInDays, setDiffInDays] = useState('');
 
@@ -66,46 +67,68 @@ export const DatePicker: React.FC<IProps> = ({ handleClick }) => {
 	return (
 		<div className={styles['date-picker']}>
 			<div className={styles['date-picker_info-block']}>
-				<div className={styles['date-picker_info_dates']}>
-					<div className={styles['date-picker_amount']}>{diffInDays}</div>
-					<div className={styles['date-picker_dates']}>
-						{format(selectedParameters.date.start, 'd MMM yyyy')} -{' '}
-						{format(selectedParameters.date.end, 'd MMM yyyy')}
+				<div className={styles['date-picker_info-block-wrapper']}>
+					<div className={styles['date-picker_info_dates']}>
+						<div className={styles['date-picker_amount']}>{diffInDays}</div>
+						<div className={styles['date-picker_dates']}>
+							{format(selectedParameters.date.start, 'd MMM yyyy')} -{' '}
+							{format(selectedParameters.date.end, 'd MMM yyyy')}
+						</div>
 					</div>
+					{isMobil && (
+						<div className="date-picker_info-block_button-reset">
+							<div
+								className={styles['calendar-block_buttons_reset-dates']}
+								onClick={() => {
+									handleSetServeDate({
+										start: parse(format(new Date(), 'dd.MM.yyyy'), 'dd.MM.yyyy', new Date()),
+										end: addDays(
+											parse(format(new Date(), 'dd.MM.yyyy'), 'dd.MM.yyyy', new Date()),
+											1,
+										),
+									});
+								}}
+							>
+								Сбросить даты
+							</div>
+						</div>
+					)}
 				</div>
-				<div className={styles['date-picker_input-blocks']}>
-					<div className={styles['input_component__wrapper']}>
-						<InputDateComponent
-							onChange={function (payload: string): void {
-								handleSetServeDate({
-									...selectedParameters.date,
-									start: parse(payload, 'dd.MM.yyyy', new Date()),
-								});
-							}}
-							value={format(selectedParameters.date.start, 'dd.MM.yyyy')}
-							name={'Прибытие'}
-							label={'Прибытие'}
-						/>
+				{!isMobil && (
+					<div className={styles['date-picker_input-blocks']}>
+						<div className={styles['input_component__wrapper']}>
+							<InputDateComponent
+								onChange={function (payload: string): void {
+									handleSetServeDate({
+										...selectedParameters.date,
+										start: parse(payload, 'dd.MM.yyyy', new Date()),
+									});
+								}}
+								value={format(selectedParameters.date.start, 'dd.MM.yyyy')}
+								name={'Прибытие'}
+								label={'Прибытие'}
+							/>
+						</div>
+						<div className={styles['input_component__wrapper']}>
+							<InputDateComponent
+								onChange={function (payload: string): void {
+									handleSetServeDate({
+										...selectedParameters.date,
+										end: parse(payload, 'dd.MM.yyyy', new Date()),
+									});
+								}}
+								value={format(selectedParameters.date.end, 'dd.MM.yyyy')}
+								name={'Выезд'}
+								label={'Выезд'}
+							/>
+						</div>
 					</div>
-					<div className={styles['input_component__wrapper']}>
-						<InputDateComponent
-							onChange={function (payload: string): void {
-								handleSetServeDate({
-									...selectedParameters.date,
-									end: parse(payload, 'dd.MM.yyyy', new Date()),
-								});
-							}}
-							value={format(selectedParameters.date.end, 'dd.MM.yyyy')}
-							name={'Выезд'}
-							label={'Выезд'}
-						/>
-					</div>
-				</div>
+				)}
 			</div>
 			<div className={styles['date-picker_calendar-block']}>
 				<CalendarWidget
 					reservedDates={['2023.05.23', '2023.05.24', '2023.06.05', '2023.06.9']}
-					multiMonth={true}
+					multiMonth={!isMobil}
 					value={[selectedParameters.date.start, selectedParameters.date.end, 1]}
 					setChange={(e) => {
 						if (!e) {
@@ -114,22 +137,27 @@ export const DatePicker: React.FC<IProps> = ({ handleClick }) => {
 						handleSetServeDate({ start: e[0], end: e[1] });
 					}}
 				/>
-				<div className={styles['calendar-block_buttons']}>
-					<div
-						className={styles['calendar-block_buttons_reset-dates']}
-						onClick={() => {
-							handleSetServeDate({
-								start: parse(format(new Date(), 'dd.MM.yyyy'), 'dd.MM.yyyy', new Date()),
-								end: addDays(parse(format(new Date(), 'dd.MM.yyyy'), 'dd.MM.yyyy', new Date()), 1),
-							});
-						}}
-					>
-						Сбросить даты
+				{!isMobil && (
+					<div className={styles['calendar-block_buttons']}>
+						<div
+							className={styles['calendar-block_buttons_reset-dates']}
+							onClick={() => {
+								handleSetServeDate({
+									start: parse(format(new Date(), 'dd.MM.yyyy'), 'dd.MM.yyyy', new Date()),
+									end: addDays(
+										parse(format(new Date(), 'dd.MM.yyyy'), 'dd.MM.yyyy', new Date()),
+										1,
+									),
+								});
+							}}
+						>
+							Сбросить даты
+						</div>
+						<div className={styles['calendar-block_buttons_close']} onClick={handleClick}>
+							Закрыть
+						</div>
 					</div>
-					<div className={styles['calendar-block_buttons_close']} onClick={handleClick}>
-						Закрыть
-					</div>
-				</div>
+				)}
 			</div>
 		</div>
 	);
