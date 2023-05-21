@@ -9,6 +9,7 @@ import { ButtonsOpenCalendar } from 'features/ButtonsOpenCalendar';
 import { DatePicker } from 'shared/components/DatePicker';
 import { useOrderSelect } from 'store/useOrderSelect';
 import { format } from 'date-fns';
+import axios from 'axios';
 
 interface IFormData {
 	name: string;
@@ -17,16 +18,37 @@ interface IFormData {
 }
 
 export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
-	const { date } = useOrderSelect().selectedParameters;
+	const { selectedParameters } = useOrderSelect();
 	const [openModal, setOpenModal] = useState(false);
 	const [sendData, setSendData] = useState(false);
 	const [openCalendar, setOpenCalendar] = useState<boolean>(false);
 	const [isMobil, setIsMobil] = useState(false);
 
 	const handleSubmit = (data: IFormData): void => {
-		console.log(data);
-		setSendData(true);
-		setTimeout(handleClose, 3000);
+		debugger;
+		const reqObject = {
+			dateFrom: format(selectedParameters.date.start, 'yyyy-MM-dd'),
+			dateTo: format(selectedParameters.date.end, 'yyyy-MM-dd'),
+			name: data.name,
+			phone: data.phone,
+			email: data.email,
+			guests: {
+				adult: selectedParameters.guests.adult,
+				children: selectedParameters.guests.children,
+			},
+			apartment: selectedParameters.apartment,
+			crossDates: selectedParameters.crossDates,
+		};
+		axios
+			.post(`${process.env.REACT_APP_BASE_URL}/api/booking/`, reqObject)
+			.then((res) => {
+				console.log(res);
+				setSendData(true);
+				setTimeout(handleClose, 3000);
+			})
+			.catch((e) => {
+				console.log(e);
+			});
 	};
 
 	const handleClose = (): void => {
@@ -51,8 +73,8 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 						</div>
 						<div className={styles['form-to-block']}>
 							<ButtonsOpenCalendar
-								dateInn={format(date.start, 'dd.MM.yyyy')}
-								dateOut={format(date.end, 'dd.MM.yyyy')}
+								dateInn={format(selectedParameters.date.start, 'dd.MM.yyyy')}
+								dateOut={format(selectedParameters.date.end, 'dd.MM.yyyy')}
 								handleClick={(): void => setOpenCalendar(true)}
 							>
 								{openCalendar && (

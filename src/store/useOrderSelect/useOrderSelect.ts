@@ -7,7 +7,7 @@ export interface IInitState {
 		start: Date;
 		end: Date;
 	};
-	crossDates: string[];
+	crossDates: boolean;
 	name: string;
 	phone: string;
 	email: string;
@@ -29,7 +29,7 @@ const initState: IInitState = {
 		start: parse(format(new Date(), 'dd.MM.yyyy'), 'dd.MM.yyyy', new Date()),
 		end: addDays(parse(format(new Date(), 'dd.MM.yyyy'), 'dd.MM.yyyy', new Date()), 1),
 	},
-	crossDates: [],
+	crossDates: false,
 	name: '',
 	phone: '',
 	email: '',

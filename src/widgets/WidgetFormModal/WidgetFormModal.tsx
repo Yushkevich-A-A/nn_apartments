@@ -25,7 +25,6 @@ export const WidgetFormModal = ({ handleSubmit }) => {
 	};
 
 	const onSubmit = () => {
-		debugger;
 		const validateEmailRegex = /^\S+@\S+\.\S+$/;
 		const arrayError: string[] = [];
 		if (formData.name.trim() === '') {

@@ -5,6 +5,7 @@ import { formatDate } from 'react-calendar/dist/cjs/shared/dateFormatter';
 import { format, parse, setDefaultOptions } from 'date-fns';
 import { ru } from 'date-fns/locale';
 import { LooseValue } from 'react-calendar/dist/cjs/shared/types';
+import { useOrderSelect } from 'store/useOrderSelect';
 setDefaultOptions({ locale: ru });
 
 interface IProps {
@@ -19,6 +20,7 @@ export const CalendarWidget: React.FC<IProps> = ({
 	multiMonth,
 	reservedDates,
 }) => {
+	const { setOrderParameter } = useOrderSelect.getState();
 	const [haveAcross, setHaveAcross] = useState(false);
 	const [monthOnCalendar, setMonthOnCalendar] = useState(format(new Date(), 'MMMM'));
 	const [crossRange, setCrossRange] = useState<string[]>([]);
@@ -54,7 +56,7 @@ export const CalendarWidget: React.FC<IProps> = ({
 	useEffect(() => {
 		const tegArray = document.getElementsByTagName('abbr');
 		const formattedDates = reservedDates.map((date) => {
-			const parsedDate = parse(date, 'yyyy.MM.dd', new Date());
+			const parsedDate = parse(date, 'yyyy-MM-dd', new Date());
 			return format(parsedDate, 'd MMMM yyyy г.');
 		});
 
@@ -73,6 +75,14 @@ export const CalendarWidget: React.FC<IProps> = ({
 			}
 		});
 	}, [monthOnCalendar]);
+
+	useEffect(() => {
+		if (crossRange.length === 0) {
+			setOrderParameter({ crossDates: false });
+		} else {
+			setOrderParameter({ crossDates: true });
+		}
+	}, [crossRange]);
 
 	return (
 		<div className="calendar_block">

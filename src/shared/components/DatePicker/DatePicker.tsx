@@ -127,7 +127,7 @@ export const DatePicker: React.FC<IProps> = ({ handleClick, isMobil }) => {
 			</div>
 			<div className={styles['date-picker_calendar-block']}>
 				<CalendarWidget
-					reservedDates={['2023.05.23', '2023.05.24', '2023.06.05', '2023.06.9']}
+					reservedDates={['2023-05-23', '2023-05-24', '2023-06-05', '2023-06-9']}
 					multiMonth={!isMobil}
 					value={[selectedParameters.date.start, selectedParameters.date.end, 1]}
 					setChange={(e) => {
