@@ -8,14 +8,10 @@ export interface IInitState {
 		end: Date;
 	};
 	crossDates: boolean;
-	name: string;
-	phone: string;
-	email: string;
 	guests: {
 		adult: number;
 		children: number;
 	};
-	apartment: number | null;
 }
 
 export interface IUseOrderSelect {
@@ -30,14 +26,10 @@ const initState: IInitState = {
 		end: addDays(parse(format(new Date(), 'dd.MM.yyyy'), 'dd.MM.yyyy', new Date()), 1),
 	},
 	crossDates: false,
-	name: '',
-	phone: '',
-	email: '',
 	guests: {
 		adult: 1,
 		children: 0,
 	},
-	apartment: null,
 };
 
 const useOrderSelect = create<IUseOrderSelect>()((set) => ({

@@ -3,7 +3,7 @@ import styles from './GreenButton.module.scss';
 
 interface IProps {
 	title: string;
-	handleClick: () => void;
+	handleClick?: () => void;
 }
 
 export const GreenButton = ({ title, handleClick }: IProps) => {

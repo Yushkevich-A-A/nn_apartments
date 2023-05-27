@@ -18,7 +18,6 @@ function App() {
 		const response = await axios.get(`${url}/api/apartments`);
 		addApartments(response.data);
 		selectApartment(response.data[1].id);
-		setOrderParameter({ apartment: response.data[1].id });
 		const serverDate = await axios.get(`${url}/api/dates/${response.data[1].id}/`);
 		if (serverDate.data[0]) {
 			setServedDates(serverDate.data[0].dates ? serverDate.data[0].dates : []);

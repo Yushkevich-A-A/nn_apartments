@@ -5,6 +5,7 @@ import { addDays, differenceInCalendarDays, format, parse, setDefaultOptions } f
 import { InputDateComponent } from 'shared/components/InputDateComponent';
 import { ru } from 'date-fns/locale';
 import { useOrderSelect } from 'store/useOrderSelect';
+import { useApartmentStore } from 'store/useApartmentStore';
 setDefaultOptions({ locale: ru });
 
 interface IProps {
@@ -14,6 +15,7 @@ interface IProps {
 
 export const DatePicker: React.FC<IProps> = ({ handleClick, isMobil }) => {
 	const { selectedParameters, setOrderParameter } = useOrderSelect();
+	const { servedDates } = useApartmentStore();
 	const [diffInDays, setDiffInDays] = useState('');
 
 	const handleSetServeDate = (payload) => {
@@ -63,6 +65,10 @@ export const DatePicker: React.FC<IProps> = ({ handleClick, isMobil }) => {
 			return setDiffInDays(`${stringValue} ночь`);
 		}
 	}, [selectedParameters]);
+
+	useEffect(() => {
+		console.log(servedDates);
+	}, [servedDates]);
 
 	return (
 		<div className={styles['date-picker']}>
@@ -127,7 +133,7 @@ export const DatePicker: React.FC<IProps> = ({ handleClick, isMobil }) => {
 			</div>
 			<div className={styles['date-picker_calendar-block']}>
 				<CalendarWidget
-					reservedDates={['2023-05-23', '2023-05-24', '2023-06-05', '2023-06-9']}
+					reservedDates={servedDates}
 					multiMonth={!isMobil}
 					value={[selectedParameters.date.start, selectedParameters.date.end, 1]}
 					setChange={(e) => {

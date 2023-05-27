@@ -74,7 +74,7 @@ export const CalendarWidget: React.FC<IProps> = ({
 				);
 			}
 		});
-	}, [monthOnCalendar]);
+	}, [monthOnCalendar, reservedDates]);
 
 	useEffect(() => {
 		if (crossRange.length === 0) {

@@ -10,6 +10,7 @@ import { DatePicker } from 'shared/components/DatePicker';
 import { useOrderSelect } from 'store/useOrderSelect';
 import { format } from 'date-fns';
 import axios from 'axios';
+import { useApartmentStore } from 'store/useApartmentStore';
 
 interface IFormData {
 	name: string;
@@ -18,14 +19,14 @@ interface IFormData {
 }
 
 export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
-	const { selectedParameters } = useOrderSelect();
+	const { selectedParameters, resetState } = useOrderSelect();
+	const { setServedDates, selectedAppartment } = useApartmentStore();
 	const [openModal, setOpenModal] = useState(false);
 	const [sendData, setSendData] = useState(false);
 	const [openCalendar, setOpenCalendar] = useState<boolean>(false);
 	const [isMobil, setIsMobil] = useState(false);
 
 	const handleSubmit = (data: IFormData): void => {
-		debugger;
 		const reqObject = {
 			dateFrom: format(selectedParameters.date.start, 'yyyy-MM-dd'),
 			dateTo: format(selectedParameters.date.end, 'yyyy-MM-dd'),
@@ -36,15 +37,22 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 				adult: selectedParameters.guests.adult,
 				children: selectedParameters.guests.children,
 			},
-			apartment: selectedParameters.apartment,
+			apartment: selectedAppartment,
 			crossDates: selectedParameters.crossDates,
 		};
 		axios
 			.post(`${process.env.REACT_APP_BASE_URL}/api/booking/`, reqObject)
 			.then((res) => {
-				console.log(res);
-				setSendData(true);
-				setTimeout(handleClose, 3000);
+				axios
+					.get(`${process.env.REACT_APP_BASE_URL}/api/dates/${res.data.apartment}/`)
+					.then((dates) => {
+						if (dates.data) {
+							setServedDates(dates.data[0].dates ? dates.data[0].dates : []);
+						}
+						resetState();
+						setSendData(true);
+						setTimeout(handleClose, 3000);
+					});
 			})
 			.catch((e) => {
 				console.log(e);
