@@ -107,9 +107,56 @@ color: #FFFFFF;
 
 
 @media (max-width: 960px) {
+    .header_wrapper {
+        padding: 35px 0 150px;
+    }
 
+    .rating {
+        font-size: 16px;
+        margin-bottom: 30px;
+        padding: 7px 20px;
+        border-radius: 5px;
+    }
+
+    .main-title {
+        width: 420px;
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        margin-bottom: 75px;
+    }
 }
 
 @media (max-width: 640px) {
+    .header_wrapper {
+        padding: 35px 0 50px;
+    }
 
+    .rating {
+        font-size: 14px;
+        margin-bottom: 20px;
+        padding: 5px 15px;
+    }
+
+    .main-title {
+        width: 300px;
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+        margin-bottom: 225px;
+    }
+    
+    .subtitle-bold {
+        display: inline;
+    }
+
+    .subtitle-bold::before {
+        content: ' ';
+    }
 }

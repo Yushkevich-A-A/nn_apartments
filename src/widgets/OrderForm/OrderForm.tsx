@@ -93,9 +93,6 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 							</ButtonsOpenCalendar>
 							<SelectGuests />
 						</div>
-						<div className="row-fields">
-							<input type="text" />
-						</div>
 						<GreenButton title="забронировать" handleClick={(): void => setOpenModal(true)} />
 					</form>
 				)}
@@ -103,10 +100,6 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 					<>
 						<DatePicker isMobil={isMobil} handleClick={(): void => setOpenCalendar(false)} />
 						<SelectGuests />
-
-						{/* <div className="row-fields">
-							<input type="text" />
-						</div> */}
 						<div className={styles['serve-button']}>
 							<GreenButton title="забронировать" handleClick={(): void => setOpenModal(true)} />
 						</div>
