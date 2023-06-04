@@ -133,6 +133,7 @@ color: #FFFFFF;
 @media (max-width: 640px) {
     .header_wrapper {
         padding: 35px 0 50px;
+        // box-shadow: inset 10px 5px 5px black;;
     }
 
     .rating {
@@ -159,4 +160,20 @@ color: #FFFFFF;
     .subtitle-bold::before {
         content: ' ';
     }
+
+    .header {
+        overflow: hidden;
+        // box-shadow: inset 10px 5px 5px black;
+    }  
+    .header::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: -50px;
+        bottom: 0;
+        left: -50px;
+        box-shadow: inset 0px 170px 120px black,
+                    inset 0px -170px 120px black;
+    }  
 }
