@@ -4,3 +4,9 @@
     font-size: 24px;
     color: #90856B;
 }
+
+@media (max-width: 640px) {
+    .text-label__h4 {
+        font-size: 18px;
+    }
+}

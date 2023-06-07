@@ -1,5 +1,6 @@
 .order-section__order_block {
-    margin-bottom: 15px
+    margin-bottom: 15px;
+    width: 480px;
 }
 .calculator-block {
     background: #FFFFFF;
@@ -29,4 +30,69 @@
     background: rgba(255, 255, 255, 0.28);
     border: 1px solid #E3E3E3;
     border-radius: 15px;
+}
+
+.date-picker_wrapper {
+    position: absolute;
+    width: 820px;
+    top: 0;
+    right: -25px;
+    z-index: 100;
+}
+
+@media (max-width: 1200px) {
+    .order-section__order_block {
+        width: 470px;
+        padding-left: 70px;
+    }
+}
+
+
+@media (max-width: 960px) {
+    .order-section__wrapper {
+        flex-direction: column;
+    }
+
+    .order-section__order_block {
+        width: 550px;
+        padding-left: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .calculator-block {
+        padding: 0;
+        background: none;
+        border-radius: 0;
+        filter: none;
+    }
+    
+    .serve-button {
+        width: 410px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+    }
+    .info {
+        margin-top: 10px;
+        font-size: 18px;
+        padding: 0;
+        text-align: center;
+        background: none;
+        border: none;
+        border-radius: 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .order-section__order_block {
+        width: 100%;
+    }
+
+    .serve-button {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px; 
+    }
 }

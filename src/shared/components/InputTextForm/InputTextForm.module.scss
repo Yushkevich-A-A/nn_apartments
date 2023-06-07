@@ -1,0 +1,21 @@
+.input_element {
+    width: 100%;
+    padding: 20px 30px;
+    border: 1px solid #E3E3E3;
+    border-radius: 6px;
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.input-element_error {
+    border: 1px solid red;
+}
+
+.input_element:focus-visible {
+    outline: none;
+}

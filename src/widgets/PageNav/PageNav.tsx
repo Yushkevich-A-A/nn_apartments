@@ -3,9 +3,22 @@ import { useApartmentStore } from 'store/useApartmentStore';
 import { IApartmentModel } from 'shared/types';
 import { WidthWrapperPage } from 'shared/components/WidthWrapperPage';
 import cn from 'classnames';
+import axios from 'axios';
+import { useOrderSelect } from 'store/useOrderSelect';
 
 export const PageNav: React.FC = () => {
-	const { apartments, selectedAppartment, selectApartment } = useApartmentStore();
+	const { resetState } = useOrderSelect();
+	const { apartments, selectedAppartment, setServedDates, selectApartment } = useApartmentStore();
+
+	const handleClick = (id: number) => {
+		axios.get(`${process.env.REACT_APP_BASE_URL}/api/dates/${id}/`).then((dates) => {
+			if (dates.data) {
+				setServedDates(dates.data[0].dates ? dates.data[0].dates : []);
+			}
+			selectApartment(id);
+			resetState();
+		});
+	};
 
 	return (
 		<WidthWrapperPage>
@@ -17,7 +30,7 @@ export const PageNav: React.FC = () => {
 								styles['page-nav__link'],
 								selectedAppartment === e.id && styles['selected-apartment'],
 							)}
-							onClick={(): void => selectApartment(e.id)}
+							onClick={(): void => handleClick(e.id)}
 						>
 							{e.name}
 						</div>

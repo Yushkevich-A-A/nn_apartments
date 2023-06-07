@@ -46,3 +46,21 @@
     margin-left: 10px;
     color: rgba(0, 0, 0, 0.8);
 }
+
+@media (max-width: 640px) {
+    .detailed-characteristic {
+        margin-top: 25px;
+        flex-direction: column;
+    }
+    .characteristic-row {
+        width: 100%;
+        &:nth-child(n + 2) {
+            margin-top: 15px;
+        }
+    }
+
+    .characteristic-data,
+    .characteristic-key {
+        font-size: 16px;
+    }
+}
