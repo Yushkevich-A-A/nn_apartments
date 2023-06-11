@@ -55,10 +55,10 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 							setServedDates(dates.data[0].dates ? dates.data[0].dates : []);
 						}
 						setSendData(true);
-						// setTimeout(() => {
-						// resetState();
-						// 		handleClose();
-						// }, 3000);
+						setTimeout(() => {
+							resetState();
+							handleClose();
+						}, 3000);
 					});
 			})
 			.catch((e) => {
