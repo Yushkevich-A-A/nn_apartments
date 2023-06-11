@@ -28,9 +28,12 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
     "react-text-mask": "^5.5.0",
     "redux-typescript": "^1.2.1",
     "sass": "^1.58.3",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^9.3.0",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
     "zustand": "^4.3.7"
@@ -73,5 +76,8 @@
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.7",
     "react-bootstrap": "^2.7.2"
+  },
+  "config": {
+    "prefer-offline": "true"
   }
 }

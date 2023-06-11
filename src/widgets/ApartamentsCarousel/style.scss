@@ -1,0 +1,30 @@
+.apartments-carousel{
+    margin-bottom: 90px;
+    margin-top: 30px;
+}
+
+.apartments-carousel__list{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.apartments-carousel__item{
+    height: 506px;
+    border-radius: 15px;
+}
+
+.apartments-carousel__button-section{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.forward{
+    rotate: 180deg;
+    margin-left: 25px;
+}
+
+.slick-slide {
+	padding: 0 20px;
+	box-sizing: border-box;
+ }
