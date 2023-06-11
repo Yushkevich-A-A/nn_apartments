@@ -17,7 +17,14 @@ export const DetailedCharacteristic: React.FC<IProps> = ({ data }) => {
 				<div className={styles['characteristic-row']} key={charact.data}>
 					<div className={styles['characteristic-key']}>{charact.name}</div>
 					<div className={styles['characteristic-line']}></div>
-					<div className={styles['characteristic-data']}>{charact.data}</div>
+					<div className={styles['characteristic-data']}>
+						{charact.data}
+						{charact.name.toLocaleLowerCase() === 'общая площадь' ? (
+							<span className={styles['square']}> m</span>
+						) : (
+							''
+						)}
+					</div>
 				</div>
 			))}
 		</div>

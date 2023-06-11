@@ -105,6 +105,12 @@
 
 
 @media (max-width: 640px) {
+
+    .date-picker {
+        max-width: 340px;
+        margin-left: auto;
+        margin-right: auto;
+    }
     .date-picker_calendar-block {
         padding: 25px 15px;
     }

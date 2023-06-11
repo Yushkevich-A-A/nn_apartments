@@ -47,6 +47,19 @@
     color: rgba(0, 0, 0, 0.8);
 }
 
+.square{ 
+    position: relative;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+.square::after {
+    content: '2';
+    position: absolute;
+    top: -7px;
+    font-size: 10px;
+    font-weight: 400;
+}
+
 @media (max-width: 640px) {
     .detailed-characteristic {
         margin-top: 25px;
