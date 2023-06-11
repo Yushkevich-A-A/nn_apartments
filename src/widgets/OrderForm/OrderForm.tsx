@@ -49,9 +49,11 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 						if (dates.data) {
 							setServedDates(dates.data[0].dates ? dates.data[0].dates : []);
 						}
-						resetState();
 						setSendData(true);
-						setTimeout(handleClose, 3000);
+						// setTimeout(() => {
+						// resetState();
+						// 		handleClose();
+						// }, 3000);
 					});
 			})
 			.catch((e) => {
@@ -109,7 +111,12 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 			{openModal && (
 				<ModalWindow handleClose={handleClose}>
 					{!sendData && <WidgetFormModal handleSubmit={handleSubmit} />}
-					{sendData && <WidgetSuccessSendData />}
+					{sendData && (
+						<WidgetSuccessSendData
+							dateFrom={selectedParameters.date.start}
+							dateTo={selectedParameters.date.end}
+						/>
+					)}
 				</ModalWindow>
 			)}
 			<div className={styles['info']}>бесплатная отмена за 14 дней</div>
