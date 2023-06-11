@@ -12,8 +12,10 @@ import entrance from './assert/entrance.svg';
 import tea_coffee from './assert/tea.svg';
 import wifi from './assert/wifi.svg';
 import { css } from '@emotion/css';
+import { v4 } from 'uuid';
 
 interface IProps {
+	id?: string;
 	type: string;
 	description: string;
 }
@@ -48,15 +50,17 @@ export const ComfortsBlock = ({ comforts }: { comforts: IProps[] }) => {
 
 	return (
 		<div className={styles['comforts-list']}>
-			{comforts.map((item: IProps) => (
-				<div className={styles['comfort-item']}>
-					<div
-						className={styles['comfort-item_icon']}
-						style={{ backgroundImage: `url(${handleIcons(item.type)})` }}
-					></div>
-					<div className={styles['comfort-item_desc']}>{item.description}</div>
-				</div>
-			))}
+			{comforts
+				.map((item) => ({ ...item, id: v4() }))
+				.map((item: IProps) => (
+					<div className={styles['comfort-item']} key={item.id}>
+						<div
+							className={styles['comfort-item_icon']}
+							style={{ backgroundImage: `url(${handleIcons(item.type)})` }}
+						></div>
+						<div className={styles['comfort-item_desc']}>{item.description}</div>
+					</div>
+				))}
 		</div>
 	);
 };

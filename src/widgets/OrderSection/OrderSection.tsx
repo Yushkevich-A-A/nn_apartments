@@ -87,6 +87,7 @@ export const OrderSection = ({ apartment }: { apartment: IApartmentModel }) => {
 								<YMaps>
 									<Map
 										className={styles['ya-map']}
+										width={'100%'}
 										defaultState={{
 											center: [56.320228, 43.972919],
 											zoom: 15,

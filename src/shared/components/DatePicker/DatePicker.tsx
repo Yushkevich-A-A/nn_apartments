@@ -66,10 +66,6 @@ export const DatePicker: React.FC<IProps> = ({ handleClick, isMobil }) => {
 		}
 	}, [selectedParameters]);
 
-	useEffect(() => {
-		console.log(servedDates);
-	}, [servedDates]);
-
 	return (
 		<div className={styles['date-picker']}>
 			<div className={styles['date-picker_info-block']}>

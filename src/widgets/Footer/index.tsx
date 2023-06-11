@@ -12,7 +12,6 @@ import './style.scss';
 
 export const Footer: React.FC = () => {
 	const { innerWidth: width } = window;
-	console.log(width);
 
 	return (
 		<div className="footer">

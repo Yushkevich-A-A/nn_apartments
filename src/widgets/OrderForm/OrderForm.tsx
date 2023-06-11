@@ -27,10 +27,6 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 	const [openCalendar, setOpenCalendar] = useState<boolean>(false);
 	const sizeWindow = useContext(contextViewSize);
 
-	useEffect(() => {
-		console.log(sizeWindow);
-	}, []);
-
 	const handleSubmit = (data: IFormData): void => {
 		const reqObject = {
 			dateFrom: format(selectedParameters.date.start, 'yyyy-MM-dd'),
