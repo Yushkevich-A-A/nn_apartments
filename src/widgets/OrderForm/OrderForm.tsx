@@ -72,7 +72,7 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 	}, []);
 
 	return (
-		<div className={styles['order-section__order_block']}>
+		<div className={styles['order-section__order_block']} id="order-section">
 			<div className={styles['calculator-block']}>
 				{!isMobil && (
 					<form>

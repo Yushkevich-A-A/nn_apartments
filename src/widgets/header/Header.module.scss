@@ -81,15 +81,12 @@
 
 .subtitle {
     font-family: 'Raleway';
-font-style: normal;
-font-weight: 300;
-font-size: 25px;
-line-height: 130%;
-margin-bottom: 60px;
-/* or 32px */
-
-
-color: #FFFFFF;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 130%;
+    margin-bottom: 60px;
+    color: #FFFFFF;
 }
 
 .subtitle-bold {
@@ -160,20 +157,4 @@ color: #FFFFFF;
     .subtitle-bold::before {
         content: ' ';
     }
-
-    .header {
-        overflow: hidden;
-        // box-shadow: inset 10px 5px 5px black;
-    }  
-    .header::before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        right: -50px;
-        bottom: 0;
-        left: -50px;
-        box-shadow: inset 0px 170px 120px black,
-                    inset 0px -170px 120px black;
-    }  
 }
