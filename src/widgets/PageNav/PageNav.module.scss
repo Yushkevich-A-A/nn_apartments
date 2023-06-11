@@ -1,11 +1,13 @@
 .page-nav {
     display: flex;
+    flex-wrap: wrap;
     margin-top: 55px;
     margin-bottom: 73px;
     padding-left: 0;
 }
 
 .page-nav__element{
+    margin-bottom: 10px;
     list-style: none;
     display: flex;
     cursor: pointer;

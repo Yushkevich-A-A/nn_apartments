@@ -4,8 +4,18 @@ import styles from './Header.module.scss';
 import { GreenButton } from 'shared/components/GreenButton';
 import cn from 'classnames';
 import { WidthWrapperPage } from 'shared/components/WidthWrapperPage';
+import { useEffect, useState } from 'react';
 
 export function Header(): JSX.Element {
+	const handleClick = () => {
+		const element = document.getElementById('order-section');
+		if (element === null) {
+			return;
+		}
+		element.scrollIntoView({
+			behavior: 'smooth',
+		});
+	};
 	return (
 		<header className={styles['header']}>
 			<div className={styles['slider_wrapper']}>
@@ -29,7 +39,7 @@ export function Header(): JSX.Element {
 							</span>
 						</div>
 						<div className={styles['btn-serve']}>
-							<GreenButton title="Забронировать" />
+							<GreenButton title="Забронировать" handleClick={() => handleClick()} />
 						</div>
 					</div>
 				</WidthWrapperPage>

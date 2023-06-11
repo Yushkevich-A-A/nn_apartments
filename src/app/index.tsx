@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.scss';
 import { Footer } from 'widgets/Footer';
 import { InformationBlock } from 'widgets/InformationBlock';
@@ -7,12 +7,11 @@ import axios, { AxiosResponse } from 'axios';
 import { IApartmentModel } from 'shared/types';
 import ApartmentPage from 'pages/ApartmentPage';
 import { Header } from 'widgets/Header';
-import { useOrderSelect } from 'store/useOrderSelect';
+import { contextViewSize } from 'shared/context';
 
 function App() {
 	const { addApartments, selectApartment, setServedDates } = useApartmentStore.getState();
-	const { setOrderParameter } = useOrderSelect.getState();
-
+	const [sizeWindow, setSizeWindow] = useState<number>(1024);
 	const handleLoader = async (): Promise<AxiosResponse<IApartmentModel[]>> => {
 		const url: string = process.env.REACT_APP_BASE_URL as string;
 		const response = await axios.get(`${url}/api/apartments`);
@@ -27,15 +26,25 @@ function App() {
 
 	useEffect(() => {
 		handleLoader();
+		const windowSizeObserver = () => {
+			// const { width } = document.body.getBoundingClientRect();
+			setSizeWindow(document.body.getBoundingClientRect().width);
+		};
+
+		document.body.addEventListener('resize', windowSizeObserver);
+		windowSizeObserver();
+		return () => document.body.removeEventListener('resize', windowSizeObserver);
 	}, []);
 
 	return (
-		<div className="App">
-			<Header />
-			<ApartmentPage />
-			<InformationBlock />
-			<Footer />
-		</div>
+		<contextViewSize.Provider value={sizeWindow}>
+			<div className="App">
+				<Header />
+				<ApartmentPage />
+				<InformationBlock />
+				<Footer />
+			</div>
+		</contextViewSize.Provider>
 	);
 }
 

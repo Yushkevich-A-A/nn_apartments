@@ -100,14 +100,18 @@
     }
 
     .map_block {
-        border-radius: 0;
-        position: absolute;
-        top: 0;
-        left: -30px;
-        right: -30px;
-        bottom: 0;
+        width: 100vw;
+        overflow: hidden;
+        left: -10px;
     } 
     .map_block_wrapper {
         margin: 20px 0;
     }
 }
+
+
+// @media (max-width: 380px) {
+//     .map_block {
+//         left: calc((100vw - 340px) / 2 * -1) ;
+//     }
+// }
