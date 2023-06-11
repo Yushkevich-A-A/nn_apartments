@@ -4,6 +4,7 @@ import { useApartmentStore } from 'store/useApartmentStore';
 import './style.scss';
 import { OrderSection } from 'widgets/OrderSection';
 import { WidthWrapperPage } from 'shared/components/WidthWrapperPage';
+import { ApartmentsCarousel } from 'widgets/ApartamentsCarousel';
 
 export function Apartment() {
 	const [apartment, setApartment] = useState<IApartmentModel | null>(null);
@@ -33,7 +34,8 @@ export function Apartment() {
 							<p className="apartaments-text__adress">{apartment.address}</p>
 							<div className="apartaments-text__about">{apartment.description}</div>
 						</div>
-					</WidthWrapperPage> */}
+					</WidthWrapperPage>
+					<ApartmentsCarousel images={apartment.images} />
 					<OrderSection apartment={apartment} />
 				</div>
 			)}
