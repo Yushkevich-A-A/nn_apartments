@@ -31,8 +31,8 @@ export function Apartment() {
 							<p className="apartaments-text__adress">{apartment.address}</p>
 							<div className="apartaments-text__about">{apartment.description}</div>
 						</div>
-						<ApartmentsCarousel images={apartment.images} />
 					</WidthWrapperPage>
+					<ApartmentsCarousel images={apartment.images} />
 					<OrderSection apartment={apartment} />
 				</div>
 			)}

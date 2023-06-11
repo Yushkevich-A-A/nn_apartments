@@ -1,5 +1,4 @@
 import './style.scss';
-import button from './button.svg';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -37,10 +36,10 @@ export function ApartmentsCarousel({ images }: { images: string[] }) {
 			</Slider>
 			<div className="apartments-carousel__button-section">
 				<button onClick={prev} className="apartments-carousel__button">
-					<ButtonSvg/>
+					<ButtonSvg />
 				</button>
 				<button onClick={next} className="apartments-carousel__button forward">
-					<ButtonSvg/>
+					<ButtonSvg />
 				</button>
 			</div>
 		</div>
