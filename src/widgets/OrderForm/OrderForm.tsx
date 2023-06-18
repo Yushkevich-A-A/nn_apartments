@@ -12,6 +12,7 @@ import { format } from 'date-fns';
 import axios from 'axios';
 import { useApartmentStore } from 'store/useApartmentStore';
 import { contextViewSize } from 'shared/context';
+import cn from 'classnames';
 
 interface IFormData {
 	name: string;
@@ -26,6 +27,24 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 	const [sendData, setSendData] = useState(false);
 	const [openCalendar, setOpenCalendar] = useState<boolean>(false);
 	const sizeWindow = useContext(contextViewSize);
+
+	useEffect(() => {
+		const closeModalCalendar = (e: MouseEvent) => {
+			const element = e.target as HTMLElement;
+			if (element.closest('.date-picker_wrapper')) {
+				return;
+			}
+			setOpenCalendar(false);
+			return;
+		};
+		document.addEventListener('click', closeModalCalendar);
+		return () => document.removeEventListener('click', closeModalCalendar);
+	}, []);
+
+	const handleOpenCalendar = (e: React.MouseEvent) => {
+		e.stopPropagation();
+		setOpenCalendar(true);
+	};
 
 	const handleSubmit = (data: IFormData): void => {
 		const reqObject = {
@@ -79,11 +98,11 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 							<ButtonsOpenCalendar
 								dateInn={format(selectedParameters.date.start, 'dd.MM.yyyy')}
 								dateOut={format(selectedParameters.date.end, 'dd.MM.yyyy')}
-								handleClick={(): void => setOpenCalendar(true)}
+								handleClick={handleOpenCalendar}
 							>
 								{openCalendar && (
-									<div className={styles['date-picker_wrapper']}>
-										<DatePicker handleClick={(): void => setOpenCalendar(false)} />
+									<div className={cn(styles['date-picker_wrapper'], 'date-picker_wrapper')}>
+										<DatePicker handleClick={(): void => setOpenCalendar(true)} />
 									</div>
 								)}
 							</ButtonsOpenCalendar>
@@ -96,7 +115,7 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 					<>
 						<DatePicker
 							isMobil={sizeWindow < 950}
-							handleClick={(): void => setOpenCalendar(false)}
+							handleClick={(e): void => setOpenCalendar(false)}
 						/>
 						<SelectGuests />
 						<div className={styles['serve-button']}>

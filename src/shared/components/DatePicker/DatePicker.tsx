@@ -9,7 +9,7 @@ import { useApartmentStore } from 'store/useApartmentStore';
 setDefaultOptions({ locale: ru });
 
 interface IProps {
-	handleClick: () => void;
+	handleClick: (e: React.MouseEvent) => void;
 	isMobil?: boolean;
 }
 

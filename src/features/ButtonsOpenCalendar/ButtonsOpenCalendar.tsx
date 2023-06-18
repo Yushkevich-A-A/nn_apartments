@@ -6,7 +6,7 @@ interface IProps {
 	children?: React.ReactNode;
 	dateInn: string;
 	dateOut: string;
-	handleClick: () => void;
+	handleClick: (e: React.MouseEvent) => void;
 }
 
 export const ButtonsOpenCalendar: React.FC<React.PropsWithChildren<IProps>> = (props) => {

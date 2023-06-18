@@ -16,6 +16,18 @@ export const SelectGuests: React.FC = () => {
 	const { guests } = selectedParameters;
 
 	useEffect(() => {
+		const closeCalcGuest = (e: MouseEvent) => {
+			const element = e.target as HTMLElement;
+			if (element.closest('.guest_calculate_block')) {
+				return;
+			}
+			setIsOpen(false);
+		};
+		document.addEventListener('click', closeCalcGuest);
+		return () => document.removeEventListener('click', closeCalcGuest);
+	}, []);
+
+	useEffect(() => {
 		if (selectedAppartment === null) {
 			return;
 		}
@@ -70,13 +82,19 @@ export const SelectGuests: React.FC = () => {
 		return `1 гость`;
 	};
 
+	const handleOpen = (e: React.MouseEvent) => {
+		e.stopPropagation();
+		setIsOpen(true);
+	};
 	return (
-		<div className={styles['select-guests']}>
+		<div className={styles['select-guests']} onClick={handleOpen}>
 			<SelectComponent
 				label="Для кого"
 				value={getAmountOfGuests()}
 				isOpen={isOpen}
-				handleOpen={(): void => setIsOpen(!isOpen)}
+				handleOpen={() => {
+					return;
+				}}
 			/>
 			{isOpen && (
 				<div className={cn(styles['calculate'], 'guest_calculate_block')}>
