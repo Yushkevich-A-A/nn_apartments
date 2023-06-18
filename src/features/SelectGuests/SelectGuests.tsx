@@ -43,11 +43,38 @@ export const SelectGuests: React.FC = () => {
 		setOrderParameter({ guests: newCountGuests });
 	};
 
+	const getAmountOfGuests = () => {
+		const amount = guests.adult + guests.children;
+		const stringAmount = amount.toString();
+		if (
+			stringAmount.endsWith('0') ||
+			stringAmount.endsWith('5') ||
+			stringAmount.endsWith('6') ||
+			stringAmount.endsWith('7') ||
+			stringAmount.endsWith('8') ||
+			stringAmount.endsWith('9') ||
+			stringAmount.endsWith('10') ||
+			stringAmount.endsWith('11') ||
+			stringAmount.endsWith('12') ||
+			stringAmount.endsWith('13') ||
+			stringAmount.endsWith('14')
+		) {
+			return `${stringAmount} гостей`;
+		}
+		if (stringAmount.endsWith('2') || stringAmount.endsWith('3') || stringAmount.endsWith('4')) {
+			return `${stringAmount} гостя`;
+		}
+		if (stringAmount.endsWith('1')) {
+			return `${stringAmount} гость`;
+		}
+		return `1 гость`;
+	};
+
 	return (
 		<div className={styles['select-guests']}>
 			<SelectComponent
 				label="Для кого"
-				value="1 гость"
+				value={getAmountOfGuests()}
 				isOpen={isOpen}
 				handleOpen={(): void => setIsOpen(!isOpen)}
 			/>
@@ -68,7 +95,7 @@ export const SelectGuests: React.FC = () => {
 						isMax={isMax}
 					/>
 					<div className={styles['additional-info']}>
-						{`Жильё рассчитано максимум на 6 гостей, \nне считая младенцев.`}
+						{`Жильё рассчитано максимум на ${capacity} гостей, \nне считая младенцев. `}
 						<span className={styles['important-info']}>
 							{`Проживание \nс питомцами не разрешается`}
 						</span>

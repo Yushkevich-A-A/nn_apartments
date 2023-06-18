@@ -31,7 +31,7 @@
 }
 
 .block_control {
-    width: 140px;
+    min-width: 140px;
     display: flex;
     justify-content: space-between;
     align-items: center;

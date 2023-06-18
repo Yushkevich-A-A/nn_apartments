@@ -4,11 +4,6 @@
     z-index: 0;
 }
 
-.flexible-center{
-    display: flex;
-    align-items: center;
-}
-
 .header_wrapper {
     position: relative;
     padding: 35px 0 160px;
@@ -30,9 +25,11 @@
     margin: 0 auto;
     margin-bottom: 130px;
     justify-content: space-between;
+    align-items: center;
 }
 
 .header__phone{
+    text-decoration: none;
     font-family: 'Raleway';
     font-style: normal;
     font-weight: 700;
@@ -40,6 +37,10 @@
     line-height: 21px;
     font-feature-settings: 'pnum' on, 'lnum' on;
     color: #FFFFFF;
+}
+
+.header__phone:hover {
+    color: #5dccf4;
 }
 
 .header-title {

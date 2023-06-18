@@ -25,9 +25,9 @@ export function Header(): JSX.Element {
 				<WidthWrapperPage>
 					<div className={styles['header_container']}>
 						<Logo />
-						<p className={cn(styles['header__phone'], styles['flexible-center'])}>
-							+7(910)999-99-99
-						</p>
+						<a className={cn(styles['header__phone'])} href="tel:+79107984696">
+							+7 910 798-46-96
+						</a>
 					</div>
 					<div className={styles['header-title']}>
 						<div className={styles['rating']}>Оценка 9.8 на booking </div>
