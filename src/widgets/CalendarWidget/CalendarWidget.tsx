@@ -107,10 +107,12 @@ export const CalendarWidget: React.FC<IProps> = ({
 					return format(date, 'LLLL').toLowerCase();
 				}}
 				onActiveStartDateChange={({ activeStartDate, view }) => {
+					// debugger;
 					if (view !== 'month') {
 						return;
 					}
-					setMonthOnCalendar(format(activeStartDate || new Date(), 'MMMM'));
+					return;
+					// setMonthOnCalendar(format(activeStartDate || new Date(), 'MMMM'));
 				}}
 			/>
 			{haveAcross && (

@@ -30,8 +30,11 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 
 	useEffect(() => {
 		const closeModalCalendar = (e: MouseEvent) => {
+			e.stopPropagation();
 			const element = e.target as HTMLElement;
-			if (element.closest('.date-picker_wrapper')) {
+			const res = element.closest('.date-picker_wrapper');
+			const res2 = element.closest('.calendar_block');
+			if (res || res2) {
 				return;
 			}
 			setOpenCalendar(false);
@@ -44,6 +47,10 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 	const handleOpenCalendar = (e: React.MouseEvent) => {
 		e.stopPropagation();
 		setOpenCalendar(true);
+	};
+
+	const handleCloseCalendar = () => {
+		setOpenCalendar(false);
 	};
 
 	const handleSubmit = (data: IFormData): void => {
@@ -73,7 +80,7 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 						setTimeout(() => {
 							resetState();
 							handleClose();
-						}, 3000);
+						}, 10000);
 					});
 			})
 			.catch((e) => {
@@ -102,7 +109,7 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 							>
 								{openCalendar && (
 									<div className={cn(styles['date-picker_wrapper'], 'date-picker_wrapper')}>
-										<DatePicker handleClick={(): void => setOpenCalendar(true)} />
+										<DatePicker handleClick={handleCloseCalendar} />
 									</div>
 								)}
 							</ButtonsOpenCalendar>
@@ -113,10 +120,7 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 				)}
 				{sizeWindow < 950 && (
 					<>
-						<DatePicker
-							isMobil={sizeWindow < 950}
-							handleClick={(e): void => setOpenCalendar(false)}
-						/>
+						<DatePicker isMobil={sizeWindow < 950} handleClick={handleCloseCalendar} />
 						<SelectGuests />
 						<div className={styles['serve-button']}>
 							<GreenButton title="забронировать" handleClick={(): void => setOpenModal(true)} />

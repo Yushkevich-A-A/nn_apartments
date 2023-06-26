@@ -9,7 +9,7 @@ import { useApartmentStore } from 'store/useApartmentStore';
 setDefaultOptions({ locale: ru });
 
 interface IProps {
-	handleClick: (e: React.MouseEvent) => void;
+	handleClick: () => void;
 	isMobil?: boolean;
 }
 
@@ -66,8 +66,12 @@ export const DatePicker: React.FC<IProps> = ({ handleClick, isMobil }) => {
 		}
 	}, [selectedParameters]);
 
+	const handleCloseModal = () => {
+		handleClick();
+	};
+
 	return (
-		<div className={styles['date-picker']}>
+		<div className={styles['date-picker']} onClick={(e) => e.stopPropagation()}>
 			<div className={styles['date-picker_info-block']}>
 				<div className={styles['date-picker_info-block-wrapper']}>
 					<div className={styles['date-picker_info_dates']}>
@@ -155,7 +159,7 @@ export const DatePicker: React.FC<IProps> = ({ handleClick, isMobil }) => {
 						>
 							Сбросить даты
 						</div>
-						<div className={styles['calendar-block_buttons_close']} onClick={handleClick}>
+						<div className={styles['calendar-block_buttons_close']} onClick={handleCloseModal}>
 							Закрыть
 						</div>
 					</div>
