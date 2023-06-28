@@ -1,7 +1,3 @@
-.apartaments-text{
-    margin-top: 73px;
-}
-
 .apartaments-text__head{
     font-family: 'Forum';
     font-style: normal;
@@ -23,5 +19,31 @@
     font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
+.apartaments-text__about{
+    font-size: 18px;
+    display: flex;
+    flex-wrap: nowrap;
+    height: 150px;
+    width: 500px;
+}
 
+@media (max-width:960px) {
+    .apartaments-text__head{
+        font-size: 40px;
+    }
+    .apartaments-text__about{
+        font-size: 16px;
+    }
+}
 
+@media (max-width: 373px) {
+    .apartaments-text__head{
+        font-size: 28px;
+    }
+    .apartaments-text__about{
+        font-size: 14px;
+    }
+    .apartaments-text__adress{
+        font-size: 14px;
+    }
+}

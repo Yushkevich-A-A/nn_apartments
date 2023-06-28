@@ -4,17 +4,19 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useRef, useState } from 'react';
 import ButtonSvg from './ButtonSvg';
+import { current } from '@reduxjs/toolkit';
 export function ApartmentsCarousel({ images }: { images: string[] }) {
 	const [slider, setSlider] = useState<any>(null);
 	const sliderRef = useRef(null);
+	const windowSize = useRef(window.innerWidth);
 	const settings = {
 		className: 'slider variable-width',
-		centerMode: true,
+		centerMode: windowSize.current <= 540 ? false : true,
 		infinite: false,
 		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: false,
-		variableWidth: true,
+		variableWidth: windowSize.current <= 540 ? false : true,
 	};
 	const prev = () => {
 		slider?.slickPrev();
