@@ -1,5 +1,4 @@
 import { addDays, format, parse } from 'date-fns';
-import { IApartmentModel } from 'shared/types';
 import { create } from 'zustand';
 
 export interface IInitState {

@@ -40,7 +40,7 @@
     "zustand": "^4.3.7"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": ". react-scripts start",
     "lint": "eslint ./src/**",
     "lint:fix": "eslint ./src/** --fix",
     "build": "react-scripts build",

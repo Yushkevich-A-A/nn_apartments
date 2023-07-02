@@ -12,6 +12,7 @@ import { contextViewSize } from 'shared/context';
 function App() {
 	const { addApartments, selectApartment, setServedDates } = useApartmentStore.getState();
 	const [sizeWindow, setSizeWindow] = useState<number>(1024);
+
 	const handleLoader = async (): Promise<AxiosResponse<IApartmentModel[]>> => {
 		const url: string = process.env.REACT_APP_BASE_URL as string;
 		const response = await axios.get(`${url}/api/apartments`);
@@ -27,7 +28,6 @@ function App() {
 	useEffect(() => {
 		handleLoader();
 		const windowSizeObserver = () => {
-			// const { width } = document.body.getBoundingClientRect();
 			setSizeWindow(document.body.getBoundingClientRect().width);
 		};
 
