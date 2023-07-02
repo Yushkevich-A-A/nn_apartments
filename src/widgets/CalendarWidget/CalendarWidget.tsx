@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import './CalendarWidget.scss';
-import { formatDate } from 'react-calendar/dist/cjs/shared/dateFormatter';
 import { format, parse, setDefaultOptions } from 'date-fns';
 import { ru } from 'date-fns/locale';
-import { LooseValue } from 'react-calendar/dist/cjs/shared/types';
 import { useOrderSelect } from 'store/useOrderSelect';
 setDefaultOptions({ locale: ru });
 
@@ -43,8 +41,10 @@ export const CalendarWidget: React.FC<IProps> = ({
 					}
 				}
 			});
-			setHaveAcross(crossSelectedData);
-			setCrossRange(arrCross);
+			if (crossSelectedData) {
+				setHaveAcross(crossSelectedData);
+				setCrossRange(arrCross);
+			}
 		});
 		mutationObserver.observe(calendar, {
 			subtree: true,
@@ -96,7 +96,6 @@ export const CalendarWidget: React.FC<IProps> = ({
 				prevLabel={<span></span>}
 				next2Label={null}
 				prev2Label={null}
-				// defaultValue={new Date()}
 				value={value}
 				onChange={(e) => {
 					setChange(e);
@@ -107,12 +106,10 @@ export const CalendarWidget: React.FC<IProps> = ({
 					return format(date, 'LLLL').toLowerCase();
 				}}
 				onActiveStartDateChange={({ activeStartDate, view }) => {
-					// debugger;
 					if (view !== 'month') {
 						return;
 					}
 					return;
-					// setMonthOnCalendar(format(activeStartDate || new Date(), 'MMMM'));
 				}}
 			/>
 			{haveAcross && (

@@ -137,6 +137,7 @@ export const DatePicker: React.FC<IProps> = ({ handleClick, isMobil }) => {
 					multiMonth={!isMobil}
 					value={[selectedParameters.date.start, selectedParameters.date.end, 1]}
 					setChange={(e) => {
+						console.log(e);
 						if (!e) {
 							return;
 						}

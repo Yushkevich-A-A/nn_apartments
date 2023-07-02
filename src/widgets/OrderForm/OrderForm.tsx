@@ -6,7 +6,7 @@ import { ModalWindow } from 'shared/components/ModalWindow';
 import { WidgetFormModal } from 'widgets/WidgetFormModal';
 import { WidgetSuccessSendData } from 'widgets/WidgetSuccessSendData';
 import { ButtonsOpenCalendar } from 'features/ButtonsOpenCalendar';
-import { DatePicker } from 'shared/components/DatePicker';
+import { DatePicker } from 'widgets/DatePicker';
 import { useOrderSelect } from 'store/useOrderSelect';
 import { format } from 'date-fns';
 import axios from 'axios';
