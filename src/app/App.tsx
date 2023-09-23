@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import './style.scss';
 import { Footer } from 'widgets/Footer';
 import { InformationBlock } from 'widgets/InformationBlock';
 import { useApartmentStore } from 'store/useApartmentStore';
