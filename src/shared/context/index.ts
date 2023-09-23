@@ -1,3 +1,1 @@
-import React from 'react';
-
-export const contextViewSize = React.createContext<number>(1024);
+export { contextScreenSize } from './contextScreenSize';

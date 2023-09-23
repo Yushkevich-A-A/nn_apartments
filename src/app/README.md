@@ -1,12 +1,12 @@
 import { Footer } from 'widgets/Footer';
-import { Header } from 'widgets/header/index';
+import { Header } from 'widgets/Header/index';
 import ApartmentPage from 'pages/ApartmentPage';
 import { InformationBlock } from 'widgets/InformationBlock';
 import { IApartmentModel } from 'shared/types';
 import React, { useEffect, useState } from 'react';
 import axios, { AxiosResponse } from 'axios';
 import { useApartmentStore } from 'store/useApartmentStore'; // импортируйте соответствующий хранилище
-import { contextViewSize } from 'shared/context';
+import { contextScreenSize } from 'shared/context';
 
 function App() {
 	// получение необходимых методов из хранилища апартаментов
@@ -62,14 +62,14 @@ function App() {
 
 	return (
 		// передача текущего размера окна через контекст
-		<contextViewSize.Provider value={sizeWindow}>
+		<contextScreenSize.Provider value={sizeWindow}>
 			<div className="App">
 				<Header />
 				<ApartmentPage />
 				<InformationBlock />
 				<Footer />
 			</div>
-		</contextViewSize.Provider>
+		</contextScreenSize.Provider>
 	);
 }
 
