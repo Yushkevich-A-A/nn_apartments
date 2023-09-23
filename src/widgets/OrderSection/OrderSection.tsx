@@ -9,10 +9,10 @@ import { DetailedCharacteristic } from 'shared/components/DetailedCharacteristic
 import { ComfortsBlock } from 'widgets/ComfortsBlock';
 import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import { OrderForm } from 'widgets/OrderForm';
-import { contextViewSize } from 'shared/context/contextScreenSize';
+import { contextScreenSize } from 'shared/context';
 
 export const OrderSection = ({ apartment }: { apartment: IApartmentModel }) => {
-	const sizeWindow = useContext(contextViewSize);
+	const sizeWindow = useContext(contextScreenSize);
 	return (
 		<div className={styles['order-section']}>
 			{sizeWindow >= 960 && (

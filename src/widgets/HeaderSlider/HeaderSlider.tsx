@@ -11,11 +11,11 @@ import mobil3 from './img/mobil3.jpg';
 import mobil4 from './img/mobil4.jpg';
 import ICarouselData from 'shared/interfaces/ICarouselData';
 import './style.scss';
-import { contextViewSize } from 'shared/context/contextScreenSize';
+import { contextScreenSize } from 'shared/context';
 import { useImagePreloader } from 'shared/hooks/useImagePreloader';
 
 export function HeaderSlider() {
-	const size = useContext(contextViewSize);
+	const size = useContext(contextScreenSize);
 	const arrImg = [apart1, apart2, apart3, apart4];
 	console.log(size);
 	const arrImgMobil = [mobil1, mobil2, mobil3, mobil4];

@@ -11,7 +11,7 @@ import { useOrderSelect } from 'store/useOrderSelect';
 import { format } from 'date-fns';
 import axios from 'axios';
 import { useApartmentStore } from 'store/useApartmentStore';
-import { contextViewSize } from 'shared/context/contextScreenSize';
+import { contextScreenSize } from 'shared/context';
 import cn from 'classnames';
 
 interface IFormData {
@@ -26,7 +26,7 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 	const [openModal, setOpenModal] = useState(false);
 	const [sendData, setSendData] = useState(false);
 	const [openCalendar, setOpenCalendar] = useState<boolean>(false);
-	const sizeWindow = useContext(contextViewSize);
+	const sizeWindow = useContext(contextScreenSize);
 
 	useEffect(() => {
 		const closeModalCalendar = (e: MouseEvent) => {

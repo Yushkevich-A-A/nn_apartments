@@ -7,7 +7,7 @@ import axios, { AxiosResponse } from 'axios';
 import { IApartmentModel } from 'shared/types';
 import { ApartmentPage } from 'pages/ApartmentPage/ApartmentPage';
 import { Header } from 'widgets/Header';
-import { contextViewSize } from 'shared/context/contextScreenSize';
+import { contextScreenSize } from 'shared/context';
 
 export const App: React.FC = () => {
 	const { addApartments, selectApartment, setServedDates } = useApartmentStore.getState();
@@ -37,13 +37,13 @@ export const App: React.FC = () => {
 	}, []);
 
 	return (
-		<contextViewSize.Provider value={sizeWindow}>
+		<contextScreenSize.Provider value={sizeWindow}>
 			<div className="App">
 				<Header />
 				<ApartmentPage />
 				<InformationBlock />
 				<Footer />
 			</div>
-		</contextViewSize.Provider>
+		</contextScreenSize.Provider>
 	);
 };
