@@ -11,7 +11,7 @@ import { useOrderSelect } from 'store/useOrderSelect';
 import { format } from 'date-fns';
 import axios from 'axios';
 import { useApartmentStore } from 'store/useApartmentStore';
-import { contextViewSize } from 'shared/context';
+import { contextViewSize } from 'shared/context/contextScreenSize';
 import cn from 'classnames';
 
 interface IFormData {

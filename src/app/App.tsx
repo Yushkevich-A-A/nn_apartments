@@ -5,11 +5,11 @@ import { InformationBlock } from 'widgets/InformationBlock';
 import { useApartmentStore } from 'store/useApartmentStore';
 import axios, { AxiosResponse } from 'axios';
 import { IApartmentModel } from 'shared/types';
-import ApartmentPage from 'pages/ApartmentPage';
+import { ApartmentPage } from 'pages/ApartmentPage/ApartmentPage';
 import { Header } from 'widgets/Header';
-import { contextViewSize } from 'shared/context';
+import { contextViewSize } from 'shared/context/contextScreenSize';
 
-function App() {
+export const App: React.FC = () => {
 	const { addApartments, selectApartment, setServedDates } = useApartmentStore.getState();
 	const [sizeWindow, setSizeWindow] = useState<number>(1024);
 
@@ -46,6 +46,4 @@ function App() {
 			</div>
 		</contextViewSize.Provider>
 	);
-}
-
-export default App;
+};

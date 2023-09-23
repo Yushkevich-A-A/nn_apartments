@@ -11,7 +11,7 @@ import mobil3 from './img/mobil3.jpg';
 import mobil4 from './img/mobil4.jpg';
 import ICarouselData from 'shared/interfaces/ICarouselData';
 import './style.scss';
-import { contextViewSize } from 'shared/context';
+import { contextViewSize } from 'shared/context/contextScreenSize';
 import { useImagePreloader } from 'shared/hooks/useImagePreloader';
 
 export function HeaderSlider() {
