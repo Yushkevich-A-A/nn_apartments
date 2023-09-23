@@ -1,5 +1,5 @@
 import { Footer } from 'widgets/Footer';
-import { Header } from 'widgets/header/index';
+import { Header } from 'widgets/Header/index';
 import ApartmentPage from 'pages/ApartmentPage';
 import { InformationBlock } from 'widgets/InformationBlock';
 import { IApartmentModel } from 'shared/types';
