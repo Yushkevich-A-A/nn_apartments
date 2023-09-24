@@ -1,48 +1,28 @@
-import { HeaderSlider } from '3_widgets/HeaderSlider';
+import React, { FC } from 'react';
+import styled from 'styled-components';
 import Logo from '6_shared/components/Logo';
-import styles from './Header.module.scss';
-import { GreenButton } from '6_shared/components/GreenButton';
-import cn from 'classnames';
+import './Header.scss';
 import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage';
-import { useEffect, useState } from 'react';
 import { Phone } from '6_shared/components/MetaLinks/Phone/Phone';
+import { ContentHeader, HeaderSlider } from './components';
 
-export function Header(): JSX.Element {
-	const handleClick = () => {
-		const element = document.getElementById('order-section');
-		if (element === null) {
-			return;
-		}
-		element.scrollIntoView({
-			behavior: 'smooth',
-		});
-	};
+const Container = styled.header``;
+
+export const Header: FC = () => {
 	return (
-		<header className={styles['header']}>
-			<div className={styles['slider_wrapper']}>
+		<header className={'header'}>
+			<div className={'slider_wrapper'}>
 				<HeaderSlider />
 			</div>
-			<div className={styles['header_wrapper']}>
+			<div className={'header_wrapper'}>
 				<WidthWrapperPage>
-					<div className={styles['header_container']}>
+					<div className={'header_container'}>
 						<Logo />
 						<Phone phone="+79107984696">+7 910 798-46-96</Phone>
 					</div>
-					<div className={styles['header-title']}>
-						<div className={styles['rating']}>Оценка 9.8 на booking </div>
-						<div className={styles['main-title']}>Аренда апартаментов в Нижнем Новгороде</div>
-						<div className={styles['subtitle']}>
-							Безусловно, глубокий уровень погружения напрямую
-							<span className={styles['subtitle-bold']}>
-								зависит от укрепления моральных ценностей.
-							</span>
-						</div>
-						<div className={styles['btn-serve']}>
-							<GreenButton title="Забронировать" handleClick={() => handleClick()} />
-						</div>
-					</div>
+					<ContentHeader />
 				</WidthWrapperPage>
 			</div>
 		</header>
 	);
-}
+};
