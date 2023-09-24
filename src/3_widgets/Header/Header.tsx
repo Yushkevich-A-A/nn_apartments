@@ -5,6 +5,7 @@ import { GreenButton } from '6_shared/components/GreenButton';
 import cn from 'classnames';
 import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage';
 import { useEffect, useState } from 'react';
+import { Phone } from '6_shared/components/MetaLinks/Phone/Phone';
 
 export function Header(): JSX.Element {
 	const handleClick = () => {
@@ -25,9 +26,7 @@ export function Header(): JSX.Element {
 				<WidthWrapperPage>
 					<div className={styles['header_container']}>
 						<Logo />
-						<a className={cn(styles['header__phone'])} href="tel:+79107984696">
-							+7 910 798-46-96
-						</a>
+						<Phone phone="+79107984696">+7 910 798-46-96</Phone>
 					</div>
 					<div className={styles['header-title']}>
 						<div className={styles['rating']}>Оценка 9.8 на booking </div>

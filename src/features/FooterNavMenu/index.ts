@@ -1,1 +1,0 @@
-export { FooterNavMenu } from './FooterNavMenu';
