@@ -1,6 +1,5 @@
 import React from 'react';
 import { FooterNavLink } from '6_shared/components/FooterNavLink';
-import './style.scss';
 import styled from 'styled-components';
 
 const Container = styled.div`

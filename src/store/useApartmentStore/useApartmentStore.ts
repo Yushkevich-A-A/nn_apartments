@@ -1,4 +1,4 @@
-import { IApartmentModel } from 'shared/types';
+import { IApartmentModel } from '6_shared/types';
 import { create } from 'zustand';
 
 export interface IUseApartmentStore {
