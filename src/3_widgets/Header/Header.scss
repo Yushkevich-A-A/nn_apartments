@@ -33,13 +33,11 @@
     .header_wrapper {
         padding: 35px 0 150px;
     }
-
-
 }
 
 @media (max-width: 640px) {
     .header_wrapper {
         padding: 35px 0 50px;
-        // box-shadow: inset 10px 5px 5px black;;
+        box-shadow: inset 10px 5px 5px black;;
     }
 }

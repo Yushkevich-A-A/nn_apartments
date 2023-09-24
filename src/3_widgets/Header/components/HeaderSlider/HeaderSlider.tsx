@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Carousel } from 'react-bootstrap';
-import data from './data.json';
 import apart1 from './img/apart1.jpg';
 import apart2 from './img/apart2.jpg';
 import apart3 from './img/apart3.jpg';
@@ -9,36 +8,44 @@ import mobil1 from './img/mobil1.jpg';
 import mobil2 from './img/mobil2.jpg';
 import mobil3 from './img/mobil3.jpg';
 import mobil4 from './img/mobil4.jpg';
-import ICarouselData from '6_shared/interfaces/ICarouselData';
-import './style.scss';
 import { contextScreenSize } from '6_shared/context';
-import { useImagePreloader } from '6_shared/hooks/useImagePreloader';
+import styled from 'styled-components';
 
-export function HeaderSlider() {
+const StyledCarousel = styled(Carousel)`
+	height: 100%;
+	.carousel-inner,
+	.carousel-item {
+		height: 100%;
+	}
+`;
+
+const ContainerImg = styled.div`
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+`;
+
+export const HeaderSlider = () => {
 	const size = useContext(contextScreenSize);
-	const arrImg = [apart1, apart2, apart3, apart4];
-	console.log(size);
-	const arrImgMobil = [mobil1, mobil2, mobil3, mobil4];
-	const imagesPreloaded = useImagePreloader([apart1, apart2, apart3, apart4]);
-	const imagesPreloaded2 = useImagePreloader([mobil1, mobil2, mobil3, mobil4]);
-	console.log(imagesPreloaded);
-	console.log(imagesPreloaded2);
+	const [imgArr, setImgArr] = useState<string[]>([mobil1, mobil2, mobil3, mobil4]);
+
+	useEffect(() => {
+		if (size < 480) {
+			setImgArr([mobil1, mobil2, mobil3, mobil4]);
+		} else {
+			setImgArr([apart1, apart2, apart3, apart4]);
+		}
+	}, [size]);
 
 	return (
-		<Carousel fade={true} controls={false} indicators={false} pause={false}>
-			{data.map((item: ICarouselData, index: number) => (
-				<Carousel.Item key={item.id}>
-					{size < 480 && (
-						<div
-							className="carousel_img"
-							style={{ backgroundImage: `url(${arrImgMobil[index]})` }}
-						/>
-					)}
-					{size >= 480 && (
-						<div className="carousel_img" style={{ backgroundImage: `url(${arrImg[index]})` }} />
-					)}
+		<StyledCarousel fade={true} controls={false} indicators={false} pause={false}>
+			{imgArr.map((item: string, index: number) => (
+				<Carousel.Item key={index}>
+					<ContainerImg style={{ backgroundImage: `url(${item})` }} />
 				</Carousel.Item>
 			))}
-		</Carousel>
+		</StyledCarousel>
 	);
-}
+};
