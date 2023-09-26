@@ -6,7 +6,7 @@ import './style.scss';
 
 export const EmailElement: React.FC = () => {
 	return (
-		<FooterContactLink url="mailto:example@support.ru">
+		<FooterContactLink url="mailto:nn.domureki@gmail.com">
 			<Icon url={iconEmail} />
 			<span className="text_font-feature-setting">example@support.ru</span>
 		</FooterContactLink>
