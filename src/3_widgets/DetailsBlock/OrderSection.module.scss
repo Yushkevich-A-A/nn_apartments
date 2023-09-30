@@ -1,7 +1,7 @@
-.order-section {
-    padding: 70px 0;
-    background-color: #F7F5EE;
-}
+// .order-section {
+//     padding: 70px 0;
+//     background-color: #F7F5EE;
+// }
 
 .order-section__wrapper {
     display: flex;
@@ -81,9 +81,9 @@
 }
 
 @media (max-width: 640px) {
-    .order-section {
-        padding: 35px 0;
-    }
+    // .order-section {
+    //     padding: 35px 0;
+    // }
 
     .order-section__block,
     .order-section__block:last-child {

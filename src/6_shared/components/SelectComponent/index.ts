@@ -1,2 +1,1 @@
-import { SelectComponent } from './SelectComponent';
-export { SelectComponent };
+export { SelectComponent } from './SelectComponent';

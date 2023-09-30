@@ -1,3 +1,1 @@
-import { TextUnderTitle } from './TextUnderTitle';
-
-export { TextUnderTitle };
+export { TextUnderTitle } from './TextUnderTitle';

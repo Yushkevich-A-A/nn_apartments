@@ -1,3 +1,1 @@
-import { InfoComponent } from './InfoComponent';
-
-export { InfoComponent };
+export { InfoComponent } from './InfoComponent';

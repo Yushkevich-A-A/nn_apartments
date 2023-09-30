@@ -2,11 +2,11 @@ import { PolicyConfidentiality } from '5_entities/PolicyConfidentiality';
 import { FooterNavMenu } from '4_features/FooterNavMenu';
 import React from 'react';
 import { Col, Row, Container } from 'react-bootstrap';
-import { EmailElement } from '6_shared/components/EmailElement';
-import { InstagramElement } from '6_shared/components/InstagramElement';
-import { PhoneElement } from '6_shared/components/PhoneElement';
-import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage';
-import Logo from '6_shared/components/Logo';
+import { EmailElement } from '6_shared/components/EmailElement/EmailElement';
+import { InstagramElement } from '6_shared/components/InstagramElement/InstagramElement';
+import { PhoneElement } from '6_shared/components/PhoneElement/PhoneElement';
+import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrapperPage';
+import Logo from '6_shared/components/Logo/Logo';
 // import { Container } from 'react-bootstrap/lib/Tab';
 import './style.scss';
 

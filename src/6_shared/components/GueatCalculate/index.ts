@@ -1,2 +1,1 @@
-import { GuestCalculate } from './GuestCalculate';
-export { GuestCalculate };
+export { GuestCalculate } from './GuestCalculate';

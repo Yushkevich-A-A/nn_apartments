@@ -1,7 +1,7 @@
 import styles from './PageNav.module.scss';
 import { useApartmentStore } from 'store/useApartmentStore';
 import { IApartmentModel } from '6_shared/types';
-import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage';
+import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrapperPage';
 import cn from 'classnames';
 import axios from 'axios';
 import { useOrderSelect } from 'store/useOrderSelect';

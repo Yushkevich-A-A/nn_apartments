@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { IApartmentModel } from '6_shared/types';
 import { useApartmentStore } from 'store/useApartmentStore';
 import './style.scss';
-import { OrderSection } from '3_widgets/OrderSection';
-import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage';
+import { DetailsBlock } from '3_widgets/DetailsBlock';
+import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrapperPage';
 import { ApartmentsCarousel } from '3_widgets/ApartamentsCarousel';
 
 export function Apartment() {
@@ -36,7 +36,7 @@ export function Apartment() {
 						</div>
 					</WidthWrapperPage>
 					<ApartmentsCarousel images={apartment.images} />
-					<OrderSection apartment={apartment} />
+					<DetailsBlock apartment={apartment} />
 				</div>
 			)}
 		</>

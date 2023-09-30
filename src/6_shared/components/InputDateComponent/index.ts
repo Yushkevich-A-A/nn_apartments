@@ -1,3 +1,1 @@
-import { InputDateComponent } from './InputDateComponent';
-
-export { InputDateComponent };
+export { InputDateComponent } from './InputDateComponent';

@@ -1,2 +1,1 @@
-import { InputTextForm } from './InputTextForm';
-export { InputTextForm };
+export { InputTextForm } from './InputTextForm';

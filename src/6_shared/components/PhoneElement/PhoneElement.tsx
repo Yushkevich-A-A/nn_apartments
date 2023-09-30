@@ -1,5 +1,5 @@
 import React from 'react';
-import { FooterContactLink } from '../FooterContactLink';
+import { FooterContactLink } from '../FooterContactLink/FooterContactLink';
 
 export const PhoneElement: React.FC = () => {
 	return (

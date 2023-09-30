@@ -1,6 +1,6 @@
 import React from 'react';
-import { TitleH2 } from '6_shared/components/TitleH2';
-import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage';
+import { TitleH2 } from '6_shared/components/TitleH2/TitleH2';
+import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrapperPage';
 import { IRuleItem } from '6_shared/interfaces/IRuleItem';
 import { InformationBlockSection } from '3_widgets/InformationBlockSection';
 import data from './data.json';

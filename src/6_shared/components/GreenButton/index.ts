@@ -1,3 +1,1 @@
-import { GreenButton } from './GreenButton';
-
-export { GreenButton };
+export { GreenButton } from './GreenButton';

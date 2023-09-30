@@ -1,3 +1,1 @@
-import { InputPhoneComponent } from './InputPhoneComponent';
-
-export { InputPhoneComponent };
+export { InputPhoneComponent } from './InputPhoneComponent';
