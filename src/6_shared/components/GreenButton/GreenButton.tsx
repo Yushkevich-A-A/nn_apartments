@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './GreenButton.module.scss';
 
-interface IProps {
+type PropsType = {
 	title: string;
 	handleClick?: () => void;
-}
+};
 
-export const GreenButton = ({ title, handleClick }: IProps) => {
+export const GreenButton: React.FC<PropsType> = ({ title, handleClick }) => {
 	return (
 		<div className={styles['green-button']} onClick={handleClick}>
 			{title}

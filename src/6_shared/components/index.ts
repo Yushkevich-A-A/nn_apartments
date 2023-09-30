@@ -19,7 +19,7 @@ import { SelectComponent } from './SelectComponent';
 import { TextH3 } from './TextH3';
 import { TextH4 } from './TextH4';
 import { TextUnderTitle } from './TextUnderTitle';
-import { TitleH2 } from './TitleH2';
+import { TextH2 } from './TextH2';
 import { WidthWrapperPage } from './WidthWrapperPage';
 
 export {
@@ -44,6 +44,6 @@ export {
 	TextH3,
 	TextH4,
 	TextUnderTitle,
-	TitleH2,
+	TextH2,
 	WidthWrapperPage,
 };

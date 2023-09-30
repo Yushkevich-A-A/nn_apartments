@@ -1,6 +1,20 @@
-import React from 'react';
-import styles from './TextH4.module.scss';
+import { FC } from 'react';
+import styled from 'styled-components';
 
-export const TextH4 = ({ title }: { title: string }) => {
-	return <h4 className={styles['text-label__h4']}>{title}</h4>;
+type PropsType = {
+	title: string;
+};
+
+const Container = styled.h4`
+	font-weight: 400;
+	font-size: 24px;
+	color: #90856b;
+
+	@media (max-width: 640px) {
+		font-size: 18px;
+	}
+`;
+
+export const TextH4: FC<PropsType> = ({ title }) => {
+	return <Container>{title}</Container>;
 };

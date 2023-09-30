@@ -1,18 +1,38 @@
 import React from 'react';
-import styles from './TextUnderTitle.module.scss';
+import styled from 'styled-components';
 
-interface IProps {
+type PropsType = {
 	textArray: string[];
-}
+};
 
-export const TextUnderTitle: React.FC<IProps> = ({ textArray }) => {
+const ContainerText = styled.div`
+	padding-right: 15px;
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 160%;
+	&:nth-child(n + 2) {
+		padding-left: 15px;
+		border-left: 1px solid #dbcaac;
+	}
+	&:last-child {
+		padding-right: 0;
+	}
+
+	@media (max-width: 1200px) {
+		font-size: 16px;
+	}
+
+	@media (max-width: 640px) {
+		font-size: 14px;
+	}
+`;
+
+export const TextUnderTitle: React.FC<PropsType> = ({ textArray }) => {
 	return (
-		<div>
+		<>
 			{textArray.map((item) => (
-				<span className={styles['text-under-header']} key={item}>
-					{item}
-				</span>
+				<ContainerText key={item}>{item}</ContainerText>
 			))}
-		</div>
+		</>
 	);
 };
