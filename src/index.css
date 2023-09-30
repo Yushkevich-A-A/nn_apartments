@@ -1,7 +1,37 @@
-@import '6_shared/styles/fonts.module.scss';
-
-/* Рефакторинг: группировка импорта шрифтов для лучшей читаемости */
 @import url('https://fonts.googleapis.com/css2?family=Cormorant:wght@700&family=Forum:wght@300;400&family=Poppins:wght@500&family=Inter&family=Raleway:wght@300;400;500;700&display=swap');
+/* Рефакторинг: группировка импорта шрифтов для лучшей читаемости */
+
+:root {
+/* продумать над значениями переменных */
+	/* переменные отступов */
+	--space-base: 16px;
+	--space-xs: calc(var(--space-base) * 0.25);
+	--space-s: calc(var(--space-base) * 0.5);
+	--space-m: var(--space-base);
+	--space-l: calc(var(--space-base) * 2);
+	--space-xl: calc(var(--space-base) * 4);
+	--space-xxl: calc(var(--space-base) * 8); 
+
+	/* переменные шрифтов */
+	--font-size-base: 16px;
+	--font-size-xs: calc(var(--font-size-base) * 0.25);
+	--font-size-s: calc(var(--font-size-base) * 0.5);
+	--font-size-m: var(--font-size-base);
+	--font-size-l: calc(var(--font-size-base) * 2);
+	--font-size-xl: calc(var(--font-size-base) * 4);
+	--font-size-xxl: calc(var(--font-size-base) * 8);
+
+	/* переменные толщины шрифтов */
+	--font-weight-base: 16px;
+	--font-weight-base: 16px;
+	--font-weight-base: 16px;
+
+	/* переменные скруглений углов*/
+	--border-radius: 16px;
+
+	/* переменные тени*/
+	--shadow-base: 16px;
+}
 
 /* Общие стили для всех элементов */
 * {
@@ -15,6 +45,7 @@
 	text-decoration: none;
 	list-style: none;
 	box-sizing: border-box;
+	transition: all .1s linear;
 }
 
 /* Убран '!important', т.к. более специфичного селектора нет, и так будет работать */
@@ -36,3 +67,12 @@ h6 {
 	margin: 0;
 }
 /* Если вы желаете использовать особые стили для нумерованных или маркированных списков, вы можете добавить их ниже данного кода в вашем CSS-файле. */
+
+
+@media ( max-width: 960 ) {
+	
+}
+
+@media ( max-width: 640 ) {
+
+}
