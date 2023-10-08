@@ -1,16 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, FC } from 'react';
 import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrapperPage';
-import styles from './OrderSection.module.scss';
 import { IApartmentModel } from '6_shared/types';
-import { TextH4 } from '6_shared/components/TextH4';
-import { TextH3 } from '6_shared/components/TextH3';
-import { TextUnderTitle } from '6_shared/components/TextUnderTitle';
-import { DetailedCharacteristic } from '6_shared/components/DetailedCharacteristic';
-import { ComfortsBlock } from '3_widgets/ComfortsBlock';
-import { YMaps, Map, Placemark } from '@pbe/react-yandex-maps';
 import { OrderForm } from '3_widgets/OrderForm';
 import { contextScreenSize } from '6_shared/context';
 import styled from 'styled-components';
+import { DescriptionDetailsBlock } from './components';
+import { LocationMap } from './components/LocationMap';
+
+type PropsType = {
+	apartment: IApartmentModel;
+};
 
 const Container = styled.div`
 	padding: 70px 0;
@@ -20,108 +19,55 @@ const Container = styled.div`
 	}
 `;
 
-export const DetailsBlock = ({ apartment }: { apartment: IApartmentModel }) => {
+const Section = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	@media (max-width: 960px) {
+		flex-direction: column;
+	}
+`;
+
+export const DetailsBlock: FC<PropsType> = ({ apartment }) => {
 	const sizeWindow = useContext(contextScreenSize);
 	return (
 		<Container>
 			{/* TODO: продумать переключение режимов отображения при изменении размера экрана */}
+			{/* TODO: отображение на desktop*/}
 			{sizeWindow >= 960 && (
 				<WidthWrapperPage>
-					<div className={styles['order-section__wrapper']}>
-						<div className={styles['order-section__description_block']}>
-							<div className={styles['order-section__block']}>
-								<TextH4 title="Апартаменты" />
-								<TextH3 title={apartment.name} />
-								<TextUnderTitle textArray={apartment.shortCharacteristic} />
-								<DetailedCharacteristic data={apartment.detailedCharacteristic} />
-							</div>
-							<div className={styles['order-section__block']}>
-								<TextH4 title="Удобства:" />
-								<ComfortsBlock comforts={apartment.comfort} />
-							</div>
-
-							<div className={styles['order-section__block']}>
-								<TextH4 title="Расположение" />
-								{!!apartment.location && <TextUnderTitle textArray={apartment.location.desc} />}
-								<div className={styles['map_block_wrapper']}>
-									<div className={styles['map_block']}>
-										<YMaps>
-											<Map
-												className={styles['ya-map']}
-												defaultState={{
-													center: [56.320228, 43.972919],
-													zoom: 15,
-													controls: ['zoomControl'],
-												}}
-												modules={['control.ZoomControl']}
-												instanceRef={(ref) => {
-													ref && ref.behaviors.disable('scrollZoom');
-													ref && ref.behaviors.disable('drag');
-												}}
-											>
-												<Placemark defaultGeometry={[56.320228, 43.972919]} />
-											</Map>
-										</YMaps>
-										{/* <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0f15c2b1a9460d60fff48b933cd958ce5fe8bcd16dfe4469a6f556da21b95467&amp;source=constructor" width="500" height="400" frameborder="0"></iframe> */}
-									</div>
-								</div>
-							</div>
-						</div>
+					<Section>
+						<DescriptionDetailsBlock apartment={apartment} />
 						<OrderForm price={apartment.price} />
-					</div>
+					</Section>
 				</WidthWrapperPage>
 			)}
+			{/* TODO: отображение на planshet*/}
+			{
+				// sizeWindow < 960 && (
+				// 	<>
+				// 		{/* <div className={styles['order-section__wrapper']}>
+				// 			<div className={styles['order-section__description_block']}> */}
+				// 		<WidthWrapperPage>
+				// 			<div className={styles['order-section__block']}>
+				// 				<TextH4 title="Апартаменты" />
+				// 				<TextH3 title={apartment.name} />
+				// 				<TextUnderTitle textArray={apartment.shortCharacteristic} />
+				// 				<DetailedCharacteristic data={apartment.detailedCharacteristic} />
+				// 			</div>
+				// 			<div className={styles['order-section__block']}>
+				// 				<TextH4 title="Удобства:" />
+				// 				<ComfortsBlock comforts={apartment.comfort} />
+				// 			</div>
+				// 		</WidthWrapperPage>
+				// 		<LocationMap apartment={apartment} />
+				// 		<WidthWrapperPage>
+				// 			<OrderForm price={apartment.price} />
+				// 		</WidthWrapperPage>
+				// 	</>
+				// )
+			}
 		</Container>
 	);
 };
-
-// {sizeWindow < 960 && (
-// 	<>
-// 		{/* <div className={styles['order-section__wrapper']}>
-// 			<div className={styles['order-section__description_block']}> */}
-// 		<WidthWrapperPage>
-// 			<div className={styles['order-section__block']}>
-// 				<TextH4 title="Апартаменты" />
-// 				<TextH3 title={apartment.name} />
-// 				<TextUnderTitle textArray={apartment.shortCharacteristic} />
-// 				<DetailedCharacteristic data={apartment.detailedCharacteristic} />
-// 			</div>
-// 			<div className={styles['order-section__block']}>
-// 				<TextH4 title="Удобства:" />
-// 				<ComfortsBlock comforts={apartment.comfort} />
-// 			</div>
-// 		</WidthWrapperPage>
-// 		<div className={styles['order-section__block']}>
-// 			<WidthWrapperPage>
-// 				<TextH4 title="Расположение" />
-// 				{!!apartment.location && <TextUnderTitle textArray={apartment.location.desc} />}
-// 			</WidthWrapperPage>
-// 			<div className={styles['map_block_wrapper']}>
-// 				<div className={styles['map_block']}>
-// 					<YMaps>
-// 						<Map
-// 							className={styles['ya-map']}
-// 							width={'100%'}
-// 							defaultState={{
-// 								center: [56.320228, 43.972919],
-// 								zoom: 15,
-// 								controls: ['zoomControl'],
-// 							}}
-// 							modules={['control.ZoomControl']}
-// 							instanceRef={(ref) => {
-// 								ref && ref.behaviors.disable('scrollZoom');
-// 								ref && ref.behaviors.disable('drag');
-// 							}}
-// 						>
-// 							<Placemark defaultGeometry={[56.320228, 43.972919]} />
-// 						</Map>
-// 					</YMaps>
-// 					{/* <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A0f15c2b1a9460d60fff48b933cd958ce5fe8bcd16dfe4469a6f556da21b95467&amp;source=constructor" width="500" height="400" frameborder="0"></iframe> */}
-// 				</div>
-// 			</div>
-// 		</div>
-// 		<WidthWrapperPage>
-// 			<OrderForm price={apartment.price} />
-// 		</WidthWrapperPage>
-// 	</>
-// )}

@@ -1,0 +1,1 @@
+export { CharacteristicSection } from './CharacteristicSection';

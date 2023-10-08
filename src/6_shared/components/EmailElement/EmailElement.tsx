@@ -2,9 +2,6 @@ import React from 'react';
 import { FooterContactLink } from '../FooterContactLink/FooterContactLink';
 import { Icon } from '../Icon/Icon';
 import iconEmail from './img/email.svg';
-import './style.scss';
-
-const;
 
 export const EmailElement: React.FC = () => {
 	return (

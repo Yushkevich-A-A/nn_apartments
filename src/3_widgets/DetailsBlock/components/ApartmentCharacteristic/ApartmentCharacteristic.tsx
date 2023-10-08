@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './DetailedCharacteristic.module.scss';
+import styles from './ApartmentCharacteristic.module.scss';
 
 interface ICharacteristic {
 	name: string;
@@ -10,7 +10,7 @@ interface IProps {
 	data: ICharacteristic[];
 }
 
-export const DetailedCharacteristic: React.FC<IProps> = ({ data }) => {
+export const ApartmentCharacteristic: React.FC<IProps> = ({ data }) => {
 	return (
 		<div className={styles['detailed-characteristic']}>
 			{data.map((charact: ICharacteristic) => (

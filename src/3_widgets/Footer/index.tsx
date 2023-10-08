@@ -6,7 +6,7 @@ import { EmailElement } from '6_shared/components/EmailElement/EmailElement';
 import { InstagramElement } from '6_shared/components/InstagramElement/InstagramElement';
 import { PhoneElement } from '6_shared/components/PhoneElement/PhoneElement';
 import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrapperPage';
-import Logo from '6_shared/components/Logo/Logo';
+import { Logo } from '6_shared/components/Logo';
 // import { Container } from 'react-bootstrap/lib/Tab';
 import './style.scss';
 

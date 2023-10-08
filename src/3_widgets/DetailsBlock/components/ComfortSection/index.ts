@@ -1,0 +1,1 @@
+export { ComfortSection } from './ComfortSection';

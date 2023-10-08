@@ -1,4 +1,3 @@
-import { DetailedCharacteristic } from './DetailedCharacteristic';
 import { EmailElement } from './EmailElement';
 import { FooterContactLink } from './FooterContactLink';
 import { FooterNavLink } from './FooterNavLink';
@@ -23,7 +22,6 @@ import { TextH2 } from './TextH2';
 import { WidthWrapperPage } from './WidthWrapperPage';
 
 export {
-	DetailedCharacteristic,
 	EmailElement,
 	FooterContactLink,
 	FooterNavLink,

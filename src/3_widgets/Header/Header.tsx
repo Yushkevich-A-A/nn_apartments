@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styled from 'styled-components';
-import Logo from '6_shared/components/Logo/Logo';
+import { Logo } from '6_shared/components/Logo';
 import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrapperPage';
 import { Phone } from '6_shared/components/MetaLinks/Phone/Phone';
 import { ContentHeader, HeaderSlider } from './components';

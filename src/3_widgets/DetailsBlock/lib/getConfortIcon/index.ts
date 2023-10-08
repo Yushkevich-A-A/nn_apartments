@@ -1,0 +1,1 @@
+export { getComfortIcon } from './getComfortIcon';
