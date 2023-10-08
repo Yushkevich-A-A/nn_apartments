@@ -3,9 +3,12 @@ import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrap
 import { IApartmentModel } from '6_shared/types';
 import { OrderForm } from '3_widgets/OrderForm';
 import { contextScreenSize } from '6_shared/context';
-import styled from 'styled-components';
 import { DescriptionDetailsBlock } from './components';
 import { LocationMap } from './components/LocationMap';
+import { CharacteristicSection } from './components/CharacteristicSection';
+import { SectionOfBlock } from './components/SectionOfBlock';
+import { ComfortSection } from './components/ComfortSection';
+import styled from 'styled-components';
 
 type PropsType = {
 	apartment: IApartmentModel;
@@ -43,31 +46,23 @@ export const DetailsBlock: FC<PropsType> = ({ apartment }) => {
 					</Section>
 				</WidthWrapperPage>
 			)}
-			{/* TODO: отображение на planshet*/}
-			{
-				// sizeWindow < 960 && (
-				// 	<>
-				// 		{/* <div className={styles['order-section__wrapper']}>
-				// 			<div className={styles['order-section__description_block']}> */}
-				// 		<WidthWrapperPage>
-				// 			<div className={styles['order-section__block']}>
-				// 				<TextH4 title="Апартаменты" />
-				// 				<TextH3 title={apartment.name} />
-				// 				<TextUnderTitle textArray={apartment.shortCharacteristic} />
-				// 				<DetailedCharacteristic data={apartment.detailedCharacteristic} />
-				// 			</div>
-				// 			<div className={styles['order-section__block']}>
-				// 				<TextH4 title="Удобства:" />
-				// 				<ComfortsBlock comforts={apartment.comfort} />
-				// 			</div>
-				// 		</WidthWrapperPage>
-				// 		<LocationMap apartment={apartment} />
-				// 		<WidthWrapperPage>
-				// 			<OrderForm price={apartment.price} />
-				// 		</WidthWrapperPage>
-				// 	</>
-				// )
-			}
+			{/* TODO: отображение на tablet*/}
+			{sizeWindow < 960 && (
+				<>
+					<WidthWrapperPage>
+						<SectionOfBlock>
+							<CharacteristicSection apartment={apartment} />
+						</SectionOfBlock>
+						<SectionOfBlock>
+							<ComfortSection comforts={apartment.comfort} />
+						</SectionOfBlock>
+					</WidthWrapperPage>
+					<LocationMap apartment={apartment} />
+					<WidthWrapperPage>
+						<OrderForm price={apartment.price} />
+					</WidthWrapperPage>
+				</>
+			)}
 		</Container>
 	);
 };
