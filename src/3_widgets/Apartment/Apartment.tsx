@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { IApartmentModel } from '6_shared/types';
 import { useApartmentStore } from 'store/useApartmentStore';
 import './style.scss';
-import { DetailsBlock } from '3_widgets/DetailsBlock';
 import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrapperPage';
-import { ApartmentsCarousel } from '3_widgets/ApartamentsCarousel';
+import { ApartmentsCarousel } from '4_features/ApartamentsCarousel';
+import { DetailsBlock } from '4_features/DetailsBlock';
 
 export function Apartment() {
 	const [apartment, setApartment] = useState<IApartmentModel | null>(null);

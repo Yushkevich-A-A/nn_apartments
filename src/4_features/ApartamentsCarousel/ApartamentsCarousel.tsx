@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useRef, useState } from 'react';
-import ButtonSvg from './ButtonSvg';
+import { ButtonSvg } from './ButtonSvg';
 import { current } from '@reduxjs/toolkit';
 
 export function ApartmentsCarousel({ images }: { images: string[] }) {

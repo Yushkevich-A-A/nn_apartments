@@ -6,7 +6,7 @@ import cn from 'classnames';
 import axios from 'axios';
 import { useOrderSelect } from 'store/useOrderSelect';
 
-export const PageNav: React.FC = () => {
+export const MenuNavigation: React.FC = () => {
 	const { resetState } = useOrderSelect();
 	const { apartments, selectedAppartment, setServedDates, selectApartment } = useApartmentStore();
 

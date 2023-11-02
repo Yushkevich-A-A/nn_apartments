@@ -1,5 +1,5 @@
 import './style.scss';
-export default function ButtonSvg() {
+export const ButtonSvg = () => {
 	return (
 		<svg
 			className="button-svg"
@@ -25,4 +25,4 @@ export default function ButtonSvg() {
 			/>
 		</svg>
 	);
-}
+};

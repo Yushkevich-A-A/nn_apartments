@@ -1,9 +1,9 @@
 import React, { useContext, FC } from 'react';
 import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrapperPage';
 import { IApartmentModel } from '6_shared/types';
-import { OrderForm } from '3_widgets/OrderForm';
+import { OrderForm } from '4_features/OrderForm';
 import { contextScreenSize } from '6_shared/context';
-import { DescriptionDetailsBlock } from './components';
+import { DescriptionDetailsBlock } from './components/DescriptionDetailsBlock';
 import { LocationMap } from './components/LocationMap';
 import { CharacteristicSection } from './components/CharacteristicSection';
 import { SectionOfBlock } from './components/SectionOfBlock';

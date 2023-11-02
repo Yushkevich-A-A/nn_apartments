@@ -7,7 +7,7 @@ import { IApartmentModel } from '6_shared/types';
 import { ApartmentPage } from '2_pages/ApartmentPage/ApartmentPage';
 import { Header } from '3_widgets/Header';
 import { contextScreenSize } from '6_shared/context';
-import { HelmetApp } from '3_widgets/HelmetApp';
+import { HelmetApp } from '1_app/HelmetApp';
 
 export const App: React.FC = () => {
 	const { addApartments, selectApartment, setServedDates } = useApartmentStore.getState();
