@@ -4,19 +4,34 @@ import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrap
 import { IRuleItem } from '6_shared/interfaces/IRuleItem';
 import { InformationBlockSection } from '3_widgets/InformationBlockSection';
 import data from './data.json';
-import './style.scss';
+import styled from 'styled-components';
 
-export const InformationBlock = () => {
+const Container = styled.div`
+	padding: 70px 0;
+	@media (max-width: 960px) {
+		padding: 50px 0;
+	}
+`;
+const Content = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	@media (max-width: 380px) {
+		display: block;
+	}
+`;
+
+export const RuleSection = () => {
 	return (
 		<WidthWrapperPage>
-			<div className="information-block">
+			<Container>
 				<TextH2 title="Важная информация" />
-				<div className="information-block__container">
+				<Content>
 					{data.map((item: IRuleItem) => (
 						<InformationBlockSection key={item.title} item={item} />
 					))}
-				</div>
-			</div>
+				</Content>
+			</Container>
 		</WidthWrapperPage>
 	);
 };

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Footer } from '3_widgets/Footer';
-import { InformationBlock } from '3_widgets/InformationBlock';
+import { RuleSection } from '3_widgets/RuleSection/components/RuleSection';
 import { useApartmentStore } from 'store/useApartmentStore';
 import axios, { AxiosResponse } from 'axios';
 import { IApartmentModel } from '6_shared/types';
@@ -42,7 +42,7 @@ export const App: React.FC = () => {
 				<HelmetApp />
 				<Header />
 				<ApartmentPage />
-				<InformationBlock />
+				<RuleSection />
 				<Footer />
 			</div>
 		</contextScreenSize.Provider>
