@@ -7,7 +7,7 @@ export const InstagramElement: React.FC = () => {
 	return (
 		<FooterContactLink url="https://www.instagram.com/nn_domureki/">
 			<Icon url={iconInstagram} />
-			<span className="text_font-feature-setting">instagram</span>
+			<span className="text_font-feature-setting">@nn_domureki</span>
 		</FooterContactLink>
 	);
 };
