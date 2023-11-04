@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { TextH4 } from '6_shared/components';
 import styled from 'styled-components';
-import { getComfortIcon } from '4_features/DetailsBlock/lib/getConfortIcon';
+import { getComfortIcon } from '3_widgets/ApartmentOrderBlock/lib/getConfortIcon';
 
 interface IProps {
 	type: string;
