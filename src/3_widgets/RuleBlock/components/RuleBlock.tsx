@@ -2,7 +2,7 @@ import React from 'react';
 import { TextH2 } from '6_shared/components/TextH2';
 import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrapperPage';
 import { IRuleItem } from '6_shared/interfaces/IRuleItem';
-import { InformationBlockSection } from '3_widgets/InformationBlockSection';
+import { RuleColumn } from './RuleColumn';
 import data from './data.json';
 import styled from 'styled-components';
 
@@ -21,14 +21,14 @@ const Content = styled.div`
 	}
 `;
 
-export const RuleSection = () => {
+export const RuleBlock = () => {
 	return (
 		<WidthWrapperPage>
 			<Container>
 				<TextH2 title="Важная информация" />
 				<Content>
 					{data.map((item: IRuleItem) => (
-						<InformationBlockSection key={item.title} item={item} />
+						<RuleColumn key={item.title} item={item} />
 					))}
 				</Content>
 			</Container>
