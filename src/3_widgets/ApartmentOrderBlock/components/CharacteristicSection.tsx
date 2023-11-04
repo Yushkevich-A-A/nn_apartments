@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { TextH3, TextH4, TextUnderTitle } from '6_shared/components';
-import { ApartmentCharacteristic } from '../ApartmentCharacteristic';
+import { ApartmentCharacteristic } from './ApartmentCharacteristic';
 import { IApartmentModel } from '6_shared/types';
 
 type PropsType = {
