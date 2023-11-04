@@ -32,7 +32,7 @@ const Section = styled.div`
 	}
 `;
 
-export const DetailsBlock: FC<PropsType> = ({ apartment }) => {
+export const ApartmentOrderBlock: FC<PropsType> = ({ apartment }) => {
 	const sizeWindow = useContext(contextScreenSize);
 	return (
 		<Container>
