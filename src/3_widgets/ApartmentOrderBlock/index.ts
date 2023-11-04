@@ -1,1 +1,1 @@
-export { ApartmentOrderBlock } from './ApartmentOrderBlock';
+export { ApartmentOrderBlock } from './components/ApartmentOrderBlock';

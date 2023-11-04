@@ -3,11 +3,11 @@ import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrap
 import { IApartmentModel } from '6_shared/types';
 import { OrderForm } from '4_features/OrderForm';
 import { contextScreenSize } from '6_shared/context';
-import { DescriptionDetailsBlock } from './components/DescriptionDetailsBlock';
-import { LocationMap } from './components/LocationMap';
-import { CharacteristicSection } from './components/CharacteristicSection';
-import { SectionOfBlock } from './components/SectionOfBlock';
-import { ComfortSection } from './components/ComfortSection';
+import { DescriptionDetailsBlock } from './DescriptionDetailsBlock';
+import { LocationMap } from './LocationMap';
+import { CharacteristicSection } from './CharacteristicSection';
+import { SectionOfBlock } from './SectionOfBlock';
+import { ComfortSection } from './ComfortSection';
 import styled from 'styled-components';
 
 type PropsType = {
