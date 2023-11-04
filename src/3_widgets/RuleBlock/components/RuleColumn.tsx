@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { TextH4 } from '6_shared/components/TextH4';
-import './style.scss';
 
 type PropsType = {
 	item: RuleItem;

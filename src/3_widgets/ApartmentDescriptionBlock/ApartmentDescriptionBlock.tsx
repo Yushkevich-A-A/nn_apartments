@@ -6,7 +6,7 @@ import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrap
 import { ApartmentsCarousel } from '4_features/ApartamentsCarousel';
 import { DetailsBlock } from '4_features/DetailsBlock';
 
-export function Apartment() {
+export const ApartmentDescriptionBlock = () => {
 	const [apartment, setApartment] = useState<IApartmentModel | null>(null);
 	const { getApartment, selectedAppartment } = useApartmentStore();
 
@@ -46,4 +46,4 @@ export function Apartment() {
 			)}
 		</>
 	);
-}
+};
