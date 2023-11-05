@@ -1,1 +1,1 @@
-export { SelectGuests } from './SelectGuests';
+export { SelectGuests } from './components/SelectGuests';

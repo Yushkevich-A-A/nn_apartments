@@ -5,17 +5,19 @@ type PropsType = {
 	textArray: string[];
 };
 
-const ContainerText = styled.div`
-	padding-right: 15px;
+const Container = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+`;
+
+const ContentText = styled.div`
+	padding: 0 15px;
 	font-weight: 400;
 	font-size: 18px;
 	line-height: 160%;
-	&:nth-child(n + 2) {
-		padding-left: 15px;
-		border-left: 1px solid #dbcaac;
-	}
+	border-right: 1px solid #dbcaac;
 	&:last-child {
-		padding-right: 0;
+		border-right: none;
 	}
 
 	@media (max-width: 1200px) {
@@ -29,10 +31,10 @@ const ContainerText = styled.div`
 
 export const TextUnderTitle: React.FC<PropsType> = ({ textArray }) => {
 	return (
-		<>
+		<Container>
 			{textArray.map((item) => (
-				<ContainerText key={item}>{item}</ContainerText>
+				<ContentText key={item}>{item}</ContentText>
 			))}
-		</>
+		</Container>
 	);
 };

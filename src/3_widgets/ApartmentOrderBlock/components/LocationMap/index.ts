@@ -1,1 +1,0 @@
-export { LocationMap } from './LocationMap';

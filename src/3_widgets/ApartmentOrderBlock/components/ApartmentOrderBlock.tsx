@@ -34,6 +34,7 @@ const Section = styled.div`
 
 export const ApartmentOrderBlock: FC<PropsType> = ({ apartment }) => {
 	const sizeWindow = useContext(contextScreenSize);
+	console.log(apartment);
 	return (
 		<Container>
 			{/* TODO: продумать переключение режимов отображения при изменении размера экрана */}
@@ -42,7 +43,7 @@ export const ApartmentOrderBlock: FC<PropsType> = ({ apartment }) => {
 				<WidthWrapperPage>
 					<Section>
 						<DescriptionDetailsBlock apartment={apartment} />
-						<OrderForm price={apartment.price} />
+						<OrderForm apartment={apartment} />
 					</Section>
 				</WidthWrapperPage>
 			)}
@@ -59,7 +60,7 @@ export const ApartmentOrderBlock: FC<PropsType> = ({ apartment }) => {
 					</WidthWrapperPage>
 					<LocationMap apartment={apartment} />
 					<WidthWrapperPage>
-						<OrderForm price={apartment.price} />
+						<OrderForm apartment={apartment} />
 					</WidthWrapperPage>
 				</>
 			)}

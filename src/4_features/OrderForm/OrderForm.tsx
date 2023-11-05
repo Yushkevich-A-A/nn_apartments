@@ -13,6 +13,11 @@ import axios from 'axios';
 import { useApartmentStore } from 'store/useApartmentStore';
 import { contextScreenSize } from '6_shared/context';
 import cn from 'classnames';
+import { IApartmentModel } from '6_shared/types';
+
+type PropsType = {
+	apartment: IApartmentModel;
+};
 
 interface IFormData {
 	name: string;
@@ -20,9 +25,9 @@ interface IFormData {
 	email: string;
 }
 
-export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
+export const OrderForm: React.FC<PropsType> = ({ apartment }) => {
 	const { selectedParameters, resetState } = useOrderSelect();
-	const { setServedDates, selectedAppartment } = useApartmentStore();
+	const { setServedDates } = useApartmentStore();
 	const [openModal, setOpenModal] = useState(false);
 	const [sendData, setSendData] = useState(false);
 	const [openCalendar, setOpenCalendar] = useState<boolean>(false);
@@ -64,7 +69,7 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 				adult: selectedParameters.guests.adult,
 				children: selectedParameters.guests.children,
 			},
-			apartment: selectedAppartment,
+			apartment: apartment.id,
 			crossDates: selectedParameters.crossDates,
 		};
 		axios
@@ -99,7 +104,7 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 				{sizeWindow >= 950 && (
 					<form>
 						<div className={styles['price-block']}>
-							<span className={styles['price']}>от {price}₽</span>/сутки
+							<span className={styles['price']}>от {apartment.price}₽</span>/сутки
 						</div>
 						<div className={styles['form-to-block']}>
 							<ButtonsOpenCalendar
@@ -113,7 +118,7 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 									</div>
 								)}
 							</ButtonsOpenCalendar>
-							<SelectGuests />
+							<SelectGuests apartment={apartment} />
 						</div>
 						<GreenButton title="забронировать" handleClick={(): void => setOpenModal(true)} />
 					</form>
@@ -121,7 +126,7 @@ export const OrderForm: React.FC<{ price: number }> = ({ price }) => {
 				{sizeWindow < 950 && (
 					<>
 						<DatePicker isMobil={sizeWindow < 950} handleClick={handleCloseCalendar} />
-						<SelectGuests />
+						<SelectGuests apartment={apartment} />
 						<div className={styles['serve-button']}>
 							<GreenButton title="забронировать" handleClick={(): void => setOpenModal(true)} />
 						</div>

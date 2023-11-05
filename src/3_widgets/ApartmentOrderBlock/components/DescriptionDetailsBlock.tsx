@@ -1,14 +1,14 @@
 import React, { FC } from 'react';
-import { ApartmentCharacteristic } from '../ApartmentCharacteristic';
+import { ApartmentCharacteristic } from './ApartmentCharacteristic';
 import { TextH3 } from '6_shared/components/TextH3';
 import { TextH4 } from '6_shared/components/TextH4';
 import { TextUnderTitle } from '6_shared/components/TextUnderTitle';
 import styled from 'styled-components';
 import { IApartmentModel } from '6_shared/types';
-import { LocationMap } from '../LocationMap';
-import { CharacteristicSection } from '../CharacteristicSection';
-import { SectionOfBlock } from '../SectionOfBlock';
-import { ComfortSection } from '../ComfortSection';
+import { LocationMap } from './LocationMap';
+import { CharacteristicSection } from './CharacteristicSection';
+import { SectionOfBlock } from './SectionOfBlock';
+import { ComfortSection } from './ComfortSection';
 
 type PropsType = {
 	apartment: IApartmentModel;

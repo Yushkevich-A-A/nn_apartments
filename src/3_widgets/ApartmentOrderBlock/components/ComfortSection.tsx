@@ -64,12 +64,13 @@ const Description = styled.div`
 `;
 
 export const ComfortSection: FC<PropTypes> = ({ comforts }) => {
+	console.log(comforts);
 	return (
 		<>
 			<TextH4 title="Удобства:" />
 			<List>
-				{comforts.map((item: IProps, i) => (
-					<ListItem key={i}>
+				{comforts.map((item) => (
+					<ListItem key={item.description}>
 						<Icon style={{ backgroundImage: `url(${getComfortIcon(item.type)})` }} />
 						<Description>{item.description}</Description>
 					</ListItem>
