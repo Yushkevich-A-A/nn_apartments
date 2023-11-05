@@ -26,13 +26,15 @@ const Calculator = styled.div`
 	background: #ffffff;
 	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
 	border-radius: 8px;
-	padding: 35px 25px;
+	padding: 45px 25px 35px;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
 `;
 
 const InfoBlock = styled.div`
 	color: #000000;
 	opacity: 0.7;
-	margin-top: 20px;
 `;
 
 export const SelectGuests: React.FC<PropsType> = ({ apartment }) => {
