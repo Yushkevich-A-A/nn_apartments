@@ -1,1 +1,0 @@
-export { ApartmentCharacteristic } from './ApartmentCharacteristic';

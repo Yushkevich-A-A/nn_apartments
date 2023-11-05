@@ -1,0 +1,1 @@
+export { LineBetweenText } from './LineBetweenText';

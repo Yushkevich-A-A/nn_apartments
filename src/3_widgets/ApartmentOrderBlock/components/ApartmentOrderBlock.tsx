@@ -34,6 +34,7 @@ const Section = styled.div`
 
 export const ApartmentOrderBlock: FC<PropsType> = ({ apartment }) => {
 	const sizeWindow = useContext(contextScreenSize);
+	console.log(apartment);
 	return (
 		<Container>
 			{/* TODO: продумать переключение режимов отображения при изменении размера экрана */}

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { SelectComponent } from '6_shared/components/SelectComponent';
 import { useOrderSelect } from 'store/useOrderSelect';
 import { GuestCalculate } from '4_features/SelectGuests/components/GueatCalculate';
-import { useApartmentStore } from 'store/useApartmentStore';
 import { IApartmentModel } from '6_shared/types';
 import { CloseBTN } from './CloseButton';
 import styled from 'styled-components';
