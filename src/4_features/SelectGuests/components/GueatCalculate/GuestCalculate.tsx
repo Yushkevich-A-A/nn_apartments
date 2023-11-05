@@ -2,15 +2,15 @@ import React from 'react';
 import cn from 'classnames';
 import styles from './GuestCalculate.module.scss';
 
-interface IProps {
+type PropsType = {
 	value: number;
 	label: string;
 	description: string;
 	handleCount: (payload: number) => void;
 	isMax: boolean;
-}
+};
 
-export const GuestCalculate: React.FC<IProps> = ({
+export const GuestCalculate: React.FC<PropsType> = ({
 	value,
 	label,
 	description,

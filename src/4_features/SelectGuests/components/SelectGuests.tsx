@@ -1,50 +1,55 @@
 import React, { useState, useEffect } from 'react';
-import styles from './SelectGuests.module.scss';
 import { SelectComponent } from '6_shared/components/SelectComponent';
 import { useOrderSelect } from 'store/useOrderSelect';
-import { GuestCalculate } from '6_shared/components/GueatCalculate';
+import { GuestCalculate } from '4_features/SelectGuests/components/GueatCalculate';
 import { useApartmentStore } from 'store/useApartmentStore';
 import { IApartmentModel } from '6_shared/types';
-import cn from 'classnames';
+import { CloseBTN } from './CloseButton';
+import styled from 'styled-components';
 
-export const SelectGuests: React.FC = () => {
-	const { selectedAppartment, apartments } = useApartmentStore();
-	const [capacity, setCapacity] = useState(0);
+type PropsType = {
+	apartment: IApartmentModel;
+};
+
+const Container = styled.div`
+	position: relative;
+	margin-bottom: 10px;
+	@media (max-width: 960px) {
+		margin-top: 10px;
+	}
+`;
+
+const Calculator = styled.div`
+	position: absolute;
+	left: 0;
+	right: 0;
+	background: #ffffff;
+	box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.15);
+	border-radius: 8px;
+	padding: 35px 25px;
+`;
+
+const InfoBlock = styled.div`
+	color: #000000;
+	opacity: 0.7;
+	margin-top: 20px;
+`;
+
+export const SelectGuests: React.FC<PropsType> = ({ apartment }) => {
+	// const { selectedAppartment, apartments } = useApartmentStore();
 	const { selectedParameters, setOrderParameter } = useOrderSelect();
 	const [isMax, setIsMax] = useState(false);
 	const [isOpen, setIsOpen] = useState(false);
 	const { guests } = selectedParameters;
 
 	useEffect(() => {
-		const closeCalcGuest = (e: MouseEvent) => {
-			const element = e.target as HTMLElement;
-			if (element.closest('.guest_calculate_block')) {
-				return;
-			}
-			setIsOpen(false);
-		};
-		document.addEventListener('click', closeCalcGuest);
-		return () => document.removeEventListener('click', closeCalcGuest);
-	}, []);
-
-	useEffect(() => {
-		if (selectedAppartment === null) {
-			return;
-		}
-		const apartCapacity = apartments.find(
-			(apartment: IApartmentModel) => apartment.id === selectedAppartment,
-		)?.capacity;
-		setCapacity(apartCapacity || 0);
-	}, [selectedAppartment]);
-
-	useEffect(() => {
 		const countGuests = guests.adult + guests.children;
-		if (countGuests >= capacity) {
+		if (countGuests >= apartment.capacity) {
 			setIsMax(true);
 		} else {
 			setIsMax(false);
 		}
-	}, [guests, capacity]);
+	}, [guests, apartment]);
 
 	const handleCalc = (name: string, value: number): void => {
 		const newCountGuests = { ...guests, [name]: value };
@@ -82,22 +87,20 @@ export const SelectGuests: React.FC = () => {
 		return `1 гость`;
 	};
 
-	const handleOpen = (e: React.MouseEvent) => {
-		e.stopPropagation();
+	const handleOpen = () => {
 		setIsOpen(true);
 	};
 	return (
-		<div className={styles['select-guests']} onClick={handleOpen}>
+		<Container>
 			<SelectComponent
 				label="Для кого"
 				value={getAmountOfGuests()}
 				isOpen={isOpen}
-				handleOpen={() => {
-					return;
-				}}
+				handleOpen={handleOpen}
 			/>
 			{isOpen && (
-				<div className={cn(styles['calculate'], 'guest_calculate_block')}>
+				<Calculator className="guest_calculate_block">
+					<CloseBTN cb={() => setIsOpen(false)} />
 					<GuestCalculate
 						value={guests.adult}
 						label="Взрослые"
@@ -112,14 +115,14 @@ export const SelectGuests: React.FC = () => {
 						handleCount={(val: number): void => handleCalc('children', val)}
 						isMax={isMax}
 					/>
-					<div className={styles['additional-info']}>
-						{`Жильё рассчитано максимум на ${capacity} гостей, \nне считая младенцев. `}
-						<span className={styles['important-info']}>
+					<InfoBlock>
+						{`Жильё рассчитано максимум на ${apartment.capacity} гостей, \nне считая младенцев. `}
+						<span style={{ textDecoration: 'underline' }}>
 							{`Проживание \nс питомцами не разрешается`}
 						</span>
-					</div>
-				</div>
+					</InfoBlock>
+				</Calculator>
 			)}
-		</div>
+		</Container>
 	);
 };

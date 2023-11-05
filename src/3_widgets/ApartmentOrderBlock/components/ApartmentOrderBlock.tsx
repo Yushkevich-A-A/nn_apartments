@@ -42,7 +42,7 @@ export const ApartmentOrderBlock: FC<PropsType> = ({ apartment }) => {
 				<WidthWrapperPage>
 					<Section>
 						<DescriptionDetailsBlock apartment={apartment} />
-						<OrderForm price={apartment.price} />
+						<OrderForm apartment={apartment} />
 					</Section>
 				</WidthWrapperPage>
 			)}
@@ -59,7 +59,7 @@ export const ApartmentOrderBlock: FC<PropsType> = ({ apartment }) => {
 					</WidthWrapperPage>
 					<LocationMap apartment={apartment} />
 					<WidthWrapperPage>
-						<OrderForm price={apartment.price} />
+						<OrderForm apartment={apartment} />
 					</WidthWrapperPage>
 				</>
 			)}

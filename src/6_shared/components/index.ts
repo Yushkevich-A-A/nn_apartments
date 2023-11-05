@@ -2,7 +2,7 @@ import { EmailElement } from './EmailElement';
 import { FooterContactLink } from './FooterContactLink';
 import { FooterNavLink } from './FooterNavLink';
 import { GreenButton } from './GreenButton';
-import { GuestCalculate } from './GueatCalculate';
+import { GuestCalculate } from '../../4_features/SelectGuests/components/GueatCalculate';
 import { Icon } from './Icon';
 import { InfoComponent } from './InfoComponent';
 import { InputComponent } from './InputComponent';
