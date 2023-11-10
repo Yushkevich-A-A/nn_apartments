@@ -10,6 +10,10 @@ export function ApartmentsCarousel({ images }: { images: string[] }) {
 	const [slider, setSlider] = useState<any>(null);
 	const sliderRef = useRef(null);
 	const windowSize = useRef(window.innerWidth);
+	// const [selectedImage, setSelectedImage] = useState(null);
+	const [selectedImage, setSelectedImage] = useState({ photo: '' });
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [expandedImageIndex, setExpandedImageIndex] = useState(null);
 
 	const settings = {
 		className: 'slider variable-width',
@@ -19,6 +23,14 @@ export function ApartmentsCarousel({ images }: { images: string[] }) {
 		slidesToScroll: 1,
 		arrows: false,
 		variableWidth: windowSize.current <= 540 ? false : true,
+	};
+	const openModal = (img) => {
+		setSelectedImage(img);
+		console.log(selectedImage);
+		setIsModalOpen(true);
+	};
+	const closeModal = () => {
+		setIsModalOpen(false);
 	};
 
 	const prev = () => {
@@ -37,11 +49,25 @@ export function ApartmentsCarousel({ images }: { images: string[] }) {
 		<div className="apartments-carousel">
 			<Slider ref={(c: any) => setSlider(c)} {...settings}>
 				{imagesGroupList.map((item: any) =>
-					item.imagesList.map((img) => (
-						<img className="apartments-carousel__item" key={item.name} src={img.photo}></img>
+					item.imagesList.map((img, index) => (
+						<img
+							className={`apartments-carousel__item ${
+								expandedImageIndex === index ? 'expanded' : ''
+							}`}
+							key={`${item.name}-${index}`}
+							src={img.photo}
+							onClick={() => openModal(img)}
+							alt="Apartment"
+						></img>
 					)),
 				)}
 			</Slider>
+			{isModalOpen && (
+				<div className="modal">
+					<img src={selectedImage.photo} alt="Expanded Apartment" />
+					<button onClick={closeModal}>Закрыть</button>
+				</div>
+			)}
 			<div className="apartments-carousel__button-section">
 				<button onClick={prev} className="apartments-carousel__button">
 					<ButtonSvg />

@@ -32,7 +32,11 @@ export function Apartment() {
 						<div className="apartment__slider-section">
 							<p className="apartaments-text__head">{apartment.title}</p>
 							<p className="apartaments-text__adress">{apartment.address}</p>
-							<ul className="apartaments-text__about">{apartment.description}</ul>
+							<ul className="apartaments-text__about">
+								{apartment.description.split('.').map((desc, index) => (
+									<li key={index}>{desc}</li>
+								))}
+							</ul>
 						</div>
 					</WidthWrapperPage>
 					<ApartmentsCarousel images={apartment.images} />
