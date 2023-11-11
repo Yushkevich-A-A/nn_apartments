@@ -1,13 +1,13 @@
 import React, { useContext, FC } from 'react';
 import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrapperPage';
 import { IApartmentModel } from '6_shared/types';
-import { OrderForm } from '3_widgets/OrderForm';
+import { OrderForm } from '4_features/OrderForm';
 import { contextScreenSize } from '6_shared/context';
-import { DescriptionDetailsBlock } from './components';
-import { LocationMap } from './components/LocationMap';
-import { CharacteristicSection } from './components/CharacteristicSection';
-import { SectionOfBlock } from './components/SectionOfBlock';
-import { ComfortSection } from './components/ComfortSection';
+import { DescriptionDetailsBlock } from './DescriptionDetailsBlock';
+import { LocationMap } from './LocationMap';
+import { CharacteristicSection } from './CharacteristicSection';
+import { SectionOfBlock } from './SectionOfBlock';
+import { ComfortSection } from './ComfortSection';
 import styled from 'styled-components';
 
 type PropsType = {
@@ -32,7 +32,7 @@ const Section = styled.div`
 	}
 `;
 
-export const DetailsBlock: FC<PropsType> = ({ apartment }) => {
+export const ApartmentOrderBlock: FC<PropsType> = ({ apartment }) => {
 	const sizeWindow = useContext(contextScreenSize);
 	return (
 		<Container>

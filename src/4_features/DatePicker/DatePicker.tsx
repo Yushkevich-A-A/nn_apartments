@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './DatePicker.module.scss';
-import { CalendarWidget } from '3_widgets/CalendarWidget';
+import { CalendarWidget } from '4_features/CalendarWidget';
 import { addDays, differenceInCalendarDays, format, parse, setDefaultOptions } from 'date-fns';
 import { InputDateComponent } from '6_shared/components/InputDateComponent';
 import { ru } from 'date-fns/locale';

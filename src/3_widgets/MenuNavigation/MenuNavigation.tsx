@@ -1,4 +1,4 @@
-import styles from './PageNav.module.scss';
+import styles from './MenuNavigation.module.scss';
 import { useApartmentStore } from 'store/useApartmentStore';
 import { IApartmentModel } from '6_shared/types';
 import { WidthWrapperPage } from '6_shared/components/WidthWrapperPage/WidthWrapperPage';
@@ -6,7 +6,7 @@ import cn from 'classnames';
 import axios from 'axios';
 import { useOrderSelect } from 'store/useOrderSelect';
 
-export const PageNav: React.FC = () => {
+export const MenuNavigation: React.FC = () => {
 	const { resetState } = useOrderSelect();
 	const { apartments, selectedAppartment, setServedDates, selectApartment } = useApartmentStore();
 

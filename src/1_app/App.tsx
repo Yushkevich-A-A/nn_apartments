@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Footer } from '3_widgets/Footer';
-import { InformationBlock } from '3_widgets/InformationBlock';
 import { useApartmentStore } from 'store/useApartmentStore';
 import axios, { AxiosResponse } from 'axios';
 import { IApartmentModel } from '6_shared/types';
 import { ApartmentPage } from '2_pages/ApartmentPage/ApartmentPage';
 import { Header } from '3_widgets/Header';
 import { contextScreenSize } from '6_shared/context';
-import { HelmetApp } from '3_widgets/HelmetApp';
+import { HelmetApp } from '1_app/HelmetApp';
+import { RuleBlock } from '3_widgets/RuleBlock';
 
 export const App: React.FC = () => {
 	const { addApartments, selectApartment, setServedDates } = useApartmentStore.getState();
@@ -42,7 +42,7 @@ export const App: React.FC = () => {
 				<HelmetApp />
 				<Header />
 				<ApartmentPage />
-				<InformationBlock />
+				<RuleBlock />
 				<Footer />
 			</div>
 		</contextScreenSize.Provider>

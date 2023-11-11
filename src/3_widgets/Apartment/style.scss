@@ -53,66 +53,66 @@
 //     }
 // }
 
-.apartaments-text__head {
-	font-family: 'Forum';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 50px;
-	line-height: 55px;
-	text-transform: uppercase;
-	margin-bottom: 0;
-}
+// .apartaments-text__head {
+// 	font-family: 'Forum';
+// 	font-style: normal;
+// 	font-weight: 400;
+// 	font-size: 50px;
+// 	line-height: 55px;
+// 	text-transform: uppercase;
+// 	margin-bottom: 0;
+// }
 
-/* Стиль для текста адреса апартаментов */
-.apartaments-text__adress {
-	font-family: 'Raleway';
-	font-style: normal;
-	font-weight: 400;
-	font-size: 18px;
-	line-height: 29px; /* Изменил значение */
-	text-decoration-line: underline;
-	font-feature-settings: 'pnum' on, 'lnum' on;
-	white-space: nowrap;
-}
+// /* Стиль для текста адреса апартаментов */
+// .apartaments-text__adress {
+// 	font-family: 'Raleway';
+// 	font-style: normal;
+// 	font-weight: 400;
+// 	font-size: 18px;
+// 	line-height: 29px; /* Изменил значение */
+// 	text-decoration-line: underline;
+// 	font-feature-settings: 'pnum' on, 'lnum' on;
+// 	white-space: nowrap;
+// }
 
-/* Стиль для описания блока текста апартаментов */
-.apartaments-text__about {
-	padding: 0;
-	font-size: 18px;
-	columns: 2;
-	column-gap: 20px;
-	column-fill: auto;
-	height: 240px;
-	font-style: normal;
-	font-weight: 400;
-	line-height: 160%; /* 28.8px */
-}
+// /* Стиль для описания блока текста апартаментов */
+// .apartaments-text__about {
+// 	padding: 0;
+// 	font-size: 18px;
+// 	columns: 2;
+// 	column-gap: 20px;
+// 	column-fill: auto;
+// 	height: 240px;
+// 	font-style: normal;
+// 	font-weight: 400;
+// 	line-height: 160%; /* 28.8px */
+// }
 
-/* Адаптивный стиль для экранов до 960px */
-@media (max-width: 960px) {
-	.apartaments-text__head {
-		font-size: 40px;
-	}
+// /* Адаптивный стиль для экранов до 960px */
+// @media (max-width: 960px) {
+// 	.apartaments-text__head {
+// 		font-size: 40px;
+// 	}
 
-	.apartaments-text__about {
-		font-size: 16px;
-		height: 300px; /* Удаляем дублирование и объединяем стили */
-	}
-}
+// 	.apartaments-text__about {
+// 		font-size: 16px;
+// 		height: 300px; /* Удаляем дублирование и объединяем стили */
+// 	}
+// }
 
-/* Адаптивный стиль для экранов до 373px */
-@media (max-width: 373px) {
-	.apartaments-text__head {
-		font-size: 28px;
-	}
+// /* Адаптивный стиль для экранов до 373px */
+// @media (max-width: 373px) {
+// 	.apartaments-text__head {
+// 		font-size: 28px;
+// 	}
 
-	.apartaments-text__about {
-		font-size: 14px;
-		height: 100%;
-		columns: 1;
-	}
+// 	.apartaments-text__about {
+// 		font-size: 14px;
+// 		height: 100%;
+// 		columns: 1;
+// 	}
 
-	.apartaments-text__adress {
-		font-size: 14px;
-	}
-}
+// 	.apartaments-text__adress {
+// 		font-size: 14px;
+// 	}
+// }

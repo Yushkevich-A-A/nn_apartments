@@ -1,62 +1,62 @@
-.apartments-carousel {
-	margin-bottom: 90px;
-	margin-top: 73px;
-}
+// .apartments-carousel {
+// 	margin-bottom: 90px;
+// 	margin-top: 73px;
+// }
 
-.apartments-carousel__list {
-	display: flex;
-	margin-bottom: 30px;
-}
+// .apartments-carousel__list {
+// 	display: flex;
+// 	margin-bottom: 30px;
+// }
 
-.apartments-carousel__item {
-	height: 506px;
-	border-radius: 15px;
-	transition: width 0.5s ease-in-out;
-}
+// .apartments-carousel__item {
+// 	height: 506px;
+// 	border-radius: 15px;
+// 	transition: width 0.5s ease-in-out;
+// }
 
-.apartments-carousel__item.expanded {
-	transform: scale(1.2); /* Измените значение масштаба по вашему усмотрению */
-	z-index: 2;
-	position: relative;
-}
+// .apartments-carousel__item.expanded {
+// 	transform: scale(1.2); /* Измените значение масштаба по вашему усмотрению */
+// 	z-index: 2;
+// 	position: relative;
+// }
 
-.modal {
-	height: 100vh;
-	width: 100vh;
-	position: fixed;
-}
+// .modal {
+// 	height: 100vh;
+// 	width: 100vh;
+// 	position: fixed;
+// }
 
-.apartments-carousel__button-section {
-	display: flex;
-	justify-content: center;
-	margin-top: 30px;
-}
+// .apartments-carousel__button-section {
+// 	display: flex;
+// 	justify-content: center;
+// 	margin-top: 30px;
+// }
 
-.forward {
-	rotate: 180deg;
-	margin-left: 25px;
-}
+// .forward {
+// 	rotate: 180deg;
+// 	margin-left: 25px;
+// }
 
-.slick-slide {
-	padding: 0 10px;
-	box-sizing: border-box;
-}
+// .slick-slide {
+// 	padding: 0 10px;
+// 	box-sizing: border-box;
+// }
 
-@media (max-width: 960px) {
-	.apartments-carousel__item {
-		height: 306px;
-	}
-}
+// @media (max-width: 960px) {
+// 	.apartments-carousel__item {
+// 		height: 306px;
+// 	}
+// }
 
-@media (max-width: 373px) {
-	.apartments-carousel__item {
-		height: 450px;
-		width: 373px;
-		padding: 0 0px;
-		object-fit: cover;
-		border-radius: 0px;
-	}
-	.slick-list {
-		padding: 0 0px;
-	}
-}
+// @media (max-width: 373px) {
+// 	.apartments-carousel__item {
+// 		height: 450px;
+// 		width: 373px;
+// 		padding: 0 0px;
+// 		object-fit: cover;
+// 		border-radius: 0px;
+// 	}
+// 	.slick-list {
+// 		padding: 0 0px;
+// 	}
+// }

@@ -26,5 +26,5 @@ const Container = styled.div`
 `;
 
 export const MainTitle = () => {
-	return <Container>Аренда апартаментов в Нижнем Новгороде</Container>;
+	return <Container>Аренда апартаментов в Нижнем Новгороде ntcn</Container>;
 };

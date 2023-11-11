@@ -8,7 +8,7 @@ export const EmailElement: React.FC = () => {
 		// TODO: импорт по абсолютному пути
 		<FooterContactLink url="mailto:nn.domureki@gmail.com">
 			<Icon url={iconEmail} />
-			<span className="text_font-feature-setting">example@support.ru</span>
+			<span className="text_font-feature-setting">nn.domureki@gmail.com</span>
 		</FooterContactLink>
 	);
 };
