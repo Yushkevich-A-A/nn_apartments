@@ -26,8 +26,7 @@
 	font-size: 18px;
 	columns: 2;
 	column-gap: 20px;
-	column-fill: auto;
-	height: 240px;
+	height: auto;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 160%; /* 28.8px */
@@ -41,12 +40,12 @@
 
 	.apartaments-text__about {
 		font-size: 16px;
-		height: 300px; /* Удаляем дублирование и объединяем стили */
+		height: 400px; /* Удаляем дублирование и объединяем стили */
 	}
 }
 
 /* Адаптивный стиль для экранов до 373px */
-@media (max-width: 373px) {
+@media (max-width: 473px) {
 	.apartaments-text__head {
 		font-size: 28px;
 	}

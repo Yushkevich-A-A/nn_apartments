@@ -80,14 +80,14 @@ export function ApartmentsCarousel({ images }: { images: string[] }) {
 		arrows: false,
 		variableWidth: windowSize.current <= 540 ? false : true,
 	};
-	const openModal = (img) => {
-		setSelectedImage(img);
-		console.log(selectedImage);
-		setIsModalOpen(true);
-	};
-	const closeModal = () => {
-		setIsModalOpen(false);
-	};
+	// const openModal = (img) => {
+	// 	setSelectedImage(img);
+	// 	console.log(selectedImage);
+	// 	setIsModalOpen(true);
+	// };
+	// const closeModal = () => {
+	// 	setIsModalOpen(false);
+	// };
 
 	const imagesGroupList = Object.entries(images).map((e) => {
 		return { name: e[0], imagesList: e[1] };
@@ -110,7 +110,7 @@ export function ApartmentsCarousel({ images }: { images: string[] }) {
 							className={`apartments-carousel__item ${isImageExpanded ? 'expanded' : ''}`}
 							key={`${item.name}-${index}`}
 							src={img.photo}
-							onClick={() => openModal(img)}
+							// onClick={() => openModal(img)}
 							alt="Apartment"
 						></img>
 					)),
