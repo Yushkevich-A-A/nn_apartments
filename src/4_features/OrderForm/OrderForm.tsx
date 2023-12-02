@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import styles from './OrderForm.module.scss';
 import { GreenButton } from '6_shared/components/GreenButton';
-import { SelectGuests } from '4_features/SelectGuests';
 import { ModalWindow } from '6_shared/components/ModalWindow';
 import { WidgetFormModal } from '4_features/WidgetFormModal';
 import { WidgetSuccessSendData } from '4_features/WidgetSuccessSendData';
@@ -14,6 +13,7 @@ import { useApartmentStore } from 'store/useApartmentStore';
 import { contextScreenSize } from '6_shared/context';
 import cn from 'classnames';
 import { IApartmentModel } from '6_shared/types';
+import { SelectGuests } from '4_features/SelectGuests';
 
 type PropsType = {
 	apartment: IApartmentModel;

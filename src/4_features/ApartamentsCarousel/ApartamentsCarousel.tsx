@@ -105,7 +105,7 @@ export function ApartmentsCarousel({ images }: { images: string[] }) {
 		<div className={`apartments-carousel ${isImageExpanded ? 'expanded' : ''}`}>
 			<Slider ref={(c: any) => setSlider(c)} {...settings}>
 				{imagesGroupList.map((item: any) =>
-					item.imagesList.map((img, index) => (
+					item.imagesList.map((img: any, index: number) => (
 						<img
 							className={`apartments-carousel__item ${isImageExpanded ? 'expanded' : ''}`}
 							key={`${item.name}-${index}`}
