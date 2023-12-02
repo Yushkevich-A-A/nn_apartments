@@ -64,9 +64,12 @@ import { current } from '@reduxjs/toolkit';
 
 export function ApartmentsCarousel({ images }: { images: string[] }) {
 	const [slider, setSlider] = useState<any>(null);
+
 	const sliderRef = useRef(null);
 	const windowSize = useRef(window.innerWidth);
 	const [isImageExpanded, setIsImageExpanded] = useState(false); // State to track the image expansion
+	const [selectedImage, setSelectedImage] = useState({ photo: '' });
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	const settings = {
 		className: 'slider variable-width',
@@ -77,17 +80,18 @@ export function ApartmentsCarousel({ images }: { images: string[] }) {
 		arrows: false,
 		variableWidth: windowSize.current <= 540 ? false : true,
 	};
+	// const openModal = (img) => {
+	// 	setSelectedImage(img);
+	// 	console.log(selectedImage);
+	// 	setIsModalOpen(true);
+	// };
+	// const closeModal = () => {
+	// 	setIsModalOpen(false);
+	// };
 
-	const toggleImageSize = () => {
-		setIsImageExpanded(!isImageExpanded); // Toggle state on image click
-	};
 	const imagesGroupList = Object.entries(images).map((e) => {
 		return { name: e[0], imagesList: e[1] };
 	});
-	// const imagesGroupList = images.map((image, index) => ({
-	// 	name: `image_${index}`,
-	// 	imagesList: [{ photo: image }], // Assuming each image is an object with a 'photo' property
-	// }));
 
 	const prev = () => {
 		slider?.slickPrev();
@@ -101,12 +105,12 @@ export function ApartmentsCarousel({ images }: { images: string[] }) {
 		<div className={`apartments-carousel ${isImageExpanded ? 'expanded' : ''}`}>
 			<Slider ref={(c: any) => setSlider(c)} {...settings}>
 				{imagesGroupList.map((item: any) =>
-					item.imagesList.map((img: any) => (
+					item.imagesList.map((img, index) => (
 						<img
 							className={`apartments-carousel__item ${isImageExpanded ? 'expanded' : ''}`}
-							key={item.name}
+							key={`${item.name}-${index}`}
 							src={img.photo}
-							onClick={toggleImageSize}
+							// onClick={() => openModal(img)}
 							alt="Apartment"
 						></img>
 					)),

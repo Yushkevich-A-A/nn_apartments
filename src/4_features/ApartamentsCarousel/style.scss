@@ -16,11 +16,17 @@
 	transition: width 0.5s ease-in-out;
 }
 
-.apartments-carousel.expanded .apartments-carousel__item {
-	width: 1px; /* Увеличиваем ширину картинки до 70% контейнера */
-	height: 1px;
-	cursor: pointer;
+.modal {
+	height: 100vh;
+	width: 100vh;
+	position: fixed;
 }
+
+// .apartments-carousel.expanded .apartments-carousel__item {
+// 	width: 1px; /* Увеличиваем ширину картинки до 70% контейнера */
+// 	height: 1px;
+// 	cursor: pointer;
+// }
 
 .apartments-carousel__button-section {
 	display: flex;
@@ -40,7 +46,8 @@
 
 @media (max-width: 960px) {
 	.apartments-carousel__item {
-		height: 20vh;
+		// min-height: 15vh;
+		height: 406px;
 	}
 }
 
